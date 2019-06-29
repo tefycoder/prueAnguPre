@@ -1,0 +1,302 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <form method="#" action="#">
+            <div class="card-header card-header-text" data-background-color="blue">
+              <h4 class="card-title">Ingreso OC/OS</h4>
+            </div>
+            <div class="card-content">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Nombre de la Entidad
+                      <span class="star"></span>
+                    </label>
+                    <input name="comprador" type="text" class="form-control" disabled value="PROVIAS NACIONAL">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">RUC 
+                      <span class="star"></span>
+                    </label>
+                    <input name="ruccomprador" required type="text" class="form-control" disabled value="20503503639">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Periodo Presupuestal
+                      <span class="star"></span>
+                    </label>
+                    <input name="proveedor" required type="text" class="form-control" disabled value="2018">
+                  </div>
+                </div>
+
+
+
+
+
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+
+                    <div class="card-content">
+                      <ul class="nav nav-pills nav-pills-warning">
+                        <li class="active">
+                          <a id="1" href="#4590015491" class="tab-oc" data-toggle="tab">Orden 1</a>
+                        </li>
+                        <li>
+                          <a id="2" href="#4590015492" class="tab-oc" data-toggle="tab">Orden 2</a>
+                        </li>
+                        <li>
+                          <a id="3" href="#4590015493" class="tab-oc" data-toggle="tab">Orden 3</a>
+                        </li>
+                        <li>
+                          <a id="aresumen" href="#resumen" data-toggle="tab">Resumen</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        
+                          <div *ngFor="let orden of ordenes" class="tab-pane" id="{{orden.nroordencompra}}" >
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="card">
+                                  <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">assignment</i>
+                                  </div>
+                                  <div class="card-content">
+                                    <h4 class="card-title">Datos Generales</h4>
+                                    <div class="row">
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Tipo de Orden<span class="star"></span></label>
+                                          <input name="tipo{{orden.nroordencompra}}" [(ngModel)]="orden.tipo" required type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Nro. Orden<span class="star"></span></label>
+                                          <input name="nroordencompra{{orden.nroordencompra}}" [(ngModel)]="orden.nroordencompra" required type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Estado<span class="star"></span></label>
+
+                                          <select name="estado{{orden.nroordencompra}}" class="form-control" [(ngModel)]="orden.estado" disabled>
+                                            <option value=""></option>
+                                            <option value="Activa">Activa</option>
+           
+
+                                        </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">RUC Contratista<span class="star"></span></label>
+                                          <input name="ruccontratista{{orden.nroordencompra}}" [(ngModel)]="orden.ruccontratista" required type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Tipo de Moneda<span class="star"></span></label>
+                                          <select name="moneda{{orden.nroordencompra}}" class="form-control" [(ngModel)]="orden.moneda">
+                                            <option value=""></option>
+                                            <option value="PEN">PEN</option>
+                                            <option value="USD">USD</option>
+           
+
+                                        </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Tipo de Cambio<span class="star"></span></label>
+                                          <input name="tipocambio{{orden.nroordencompra}}" [(ngModel)]="orden.tipocambio" type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Fecha de Emisión<span class="star"></span></label>
+
+                                          <input name="fecharegistro{{orden.nroordencompra}}" [(ngModel)]="orden.fecharegistro" datepicker type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Fecha de Notificación<span class="star"></span></label>
+                                          <input name="fechanotificacion{{orden.nroordencompra}}" [(ngModel)]="orden.fechanotificacion" datepicker type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Fecha de Compromiso Presupuestal<span class="star"></span></label>
+                                          <input name="fechacomprimisopresupuestal{{orden.nroordencompra}}" [(ngModel)]="orden.fechacomprimisopresupuestal" datepicker type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Nro. de Expediente SIAF<span class="star"></span></label>
+                                          <input name="nroexpedientesiaf{{orden.nroordencompra}}" [(ngModel)]="orden.nroexpedientesiaf" type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Tipo de Contratación<span class="star"></span></label>
+
+                                          <input name="tipocontratacion{{orden.nroordencompra}}" [(ngModel)]="orden.tipocontratacion" type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Objeto de Contratación<span class="star"></span></label>
+                                          <select name="objetocontratacion{{orden.nroordencompra}}" class="form-control" [(ngModel)]="orden.objetocontratacion">
+                                            <option value=""></option>
+                                            <option value="Bien">Bien</option>
+                                            <option value="Servicio">Servicio</option>
+                                            <option value="Obra">Obra</option>
+           
+
+                                        </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-6">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Unidades Organicas que solicitan la Contratación<span class="star"></span></label>
+                                          <input name="unidadesorganicascontratacion{{orden.nroordencompra}}" [(ngModel)]="orden.unidadesorganicascontratacion" type="text" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Unidad Informante<span class="star"></span></label>
+                                          <input name="unidadinformante{{orden.nroordencompra}}" [(ngModel)]="orden.unidadinformante" type="text" class="form-control">
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                      <div class="col-sm-6">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Descripción y finalidad de la Contratación<span class="star"></span></label>
+                                          <textarea [(ngModel)]="orden.decripcioncontratacion" name="decripcioncontratacion{{orden.nroordencompra}}" class="form-control" rows="3"></textarea>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-sm-6">
+                                        <div class="form-group label-floating">
+                                          <label class="control-label">Información Complementaria<span class="star"></span></label>
+                                          <textarea [(ngModel)]="orden.informacioncomplementaria" name="informacioncomplementaria{{orden.nroordencompra}}" class="form-control" rows="3"></textarea>
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                  <!-- end content-->
+                                </div>
+                                <!--  end card  -->
+                              </div>
+                              <!-- end col-md-12 -->
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="card">
+                                  <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">assignment</i>
+                                  </div>
+                                  <div class="card-content">
+                                    <h4 class="card-title">Detalle de Items</h4>
+
+                                    <div class="material-datatables table-responsive" style="display:block">
+                                       
+                                      
+                                      
+                                      <table  class="productos table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%"   >
+
+                                        <thead >
+                                          <tr>
+                                            <th width="40%">Nombre del Bien o Servicio</th>
+                                            <th class="disabled-sorting">Cantidad</th>
+                                            <th class="disabled-sorting">Unidad</th>
+                                            <th class="disabled-sorting">Precio Unitario</th>
+                                            <th class="disabled-sorting">Precio Total</th>
+                                            <th class="disabled-sorting text-center">Acciones</th>
+                                          </tr>
+                                        </thead>
+
+
+                                      </table>
+                                    </div>
+                                    <!-- end content-->
+                                  </div>
+                                </div>
+                                <!--  end card  -->
+                              </div>
+                              <!-- end col-md-12 -->
+                            </div>
+
+                          </div>
+                        
+
+                       
+                        <div class="tab-pane" id="resumen">
+                          Resumen
+                          <br />
+                          <br />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="card-footer">
+              <!--<button type="button" class="btn btn-fill btn-default pull-right" (click)="grabar($event)" [disabled]="toggleButton">Grabar</button>
+              <button (click)="toggleButton=false" class="btn btn-fill btn-default pull-right" *ngIf="id>0">Habilitar Edición</button>-->
+              <a routerLink="/egp-ordencompra/comprador/buscar" class="btn btn-fill btn-default pull-right">Finalizar</a>
+              <button class="btn btn-fill btn-default pull-right" >Siguiente</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

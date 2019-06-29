@@ -1,0 +1,100 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">bookmarks</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">{{title}}</h4>
+                        <div class="row">
+                            <form id="formulario" autocomplete="off">
+                                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Grupo empresarial<span class="star">*</span></label>
+                                        <input name="Descripcion" [disabled]="!guardar" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9-. ]{4,}" (keypress)="generarCodigo()" required [(ngModel)]="grupoEmpresarial.Descripcion" type="text" class="form-control">
+                                        <span class="material-icons form-control-feedback">clear</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Código</label>
+                                        <input name="Codigo" [(ngModel)]="grupoEmpresarial.Codigo" disabled required type="text" class="form-control ng-valid ng-dirty ng-touched">
+                                    </div>                                 
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" [ngClass]="{'hidden':opcionesCodigo.length==0}">
+                                    <b class="card-title">Códigos disponibles:</b>
+                                    <div>
+                                        <ng-container *ngFor="let opcioneCodigo of opcionesCodigo">
+                                            <button class="btn btn-warning btn-round btn-sm" (click)="seleccionarOpcion(opcioneCodigo)" >{{opcioneCodigo}}</button>
+                                        </ng-container>  
+                                    </div>                                    
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <button class="btn btn-default left" [ngClass]="{'hidden': !guardar}" type="submit" (click)="guardarGrupoEmpresarial($event)">GUARDAR</button>
+                                    <button class="btn btn-default left" [ngClass]="{'hidden': guardar}" type="button" (click)="activarEditar()">Editar</button>
+                                    <a class="btn btn-fill btn-default" [routerLink]="['/grupoempresarial/adminebiz/buscar']">Regresar</a>
+                                </div>
+                            </form>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" [ngClass]="{'hidden':id=='nuevo'}">
+                                <div class="card">
+                                    <div class="card-header card-header-icon" data-background-color="blue">
+                                        <i class="material-icons">domain</i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title">Organizaciones</h4>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="table-responsive">							
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Ruc')">RUC
+                                                                <span [ngClass]="{'hidden':ordenar != 'Ruc'}">
+                                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                                </span>
+                                                            </th>
+                                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Nombre')">Organizacion
+                                                                <span [ngClass]="{'hidden':ordenar != 'Nombre'}">
+                                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                                </span>
+                                                            </th>
+                                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Estado')">Estado 															
+                                                                <span [ngClass]="{'hidden':ordenar != 'Estado'}">
+                                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                                </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <div class="container-loading" [ngClass]="{invisible: loading}">
+                                                            <div class="lds-ripple"><div></div><div></div></div>
+                                                        </div>
+                                                        <tr *ngFor="let organizacion of organizaciones" [ngClass]="{'danger':organizacion.Estado == 'INACT'}">
+                                                            <td class="text-center">{{organizacion.Ruc}}</td>
+                                                            <td>{{ organizacion.Nombre }}</td>
+                                                            <td class="text-center">
+                                                                <div *ngIf="organizacion.Estado == 'ACTIV'">Activo</div>
+                                                                <div *ngIf="organizacion.Estado == 'INACT'">Inactivo</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

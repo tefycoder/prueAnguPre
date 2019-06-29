@@ -1,0 +1,531 @@
+<div class="main-content" id="crear-organizacion">
+    <div class="container-fluid">
+        <div class="card">            
+            <div class="card-header card-header-icon" data-background-color="blue">
+                <i class="material-icons">assignment</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">{{title}}</h4>         
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-2">
+                        <div class="form-group label-floating">
+                            <label class="control-label">RUC</label>
+                            <input name="Descripcion" [value]="organizacion.Ruc" [(ngModel)]="organizacion.Ruc" type="text" disabled class="form-control">
+                            <span class="material-icons form-control-feedback">clear</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Razón social</label>
+                            <input name="Descripcion" [(ngModel)]="organizacion.Nombre" type="text" disabled class="form-control">
+                            <span class="material-icons form-control-feedback">clear</span>
+                        </div>       
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-4 text-center">
+                        <button data-toggle="modal" class="btn btn-fill btn-default" data-target="#buscar-organizacion">Buscar</button>
+                        <a class="btn btn-fill btn-default" [routerLink]="['/contrato/adminebiz/buscar']">Regresar</a>
+                    </div>     
+                </div>    
+      
+                <br>
+
+                <div class="row" [ngClass]="{'hidden':!mostrarMensajeTipoEmpresa}">
+                    <div class="col-xs-12 text-center">
+                        <br>
+                        <br>
+                        <h4>" Organización no tiene tipo de empresa "</h4> 
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <button type="button" class="btn btn-default" [routerLink]="['/organizacion/adminebiz/formulario', organizacion.IdOrganizacion]">Editar organización</button>
+                        <br>
+                        <br>
+                    </div>
+
+                </div>
+                
+                <div class="card" [ngClass]="{'hidden':!mostrarFormluarioContrato, 'hidden':organizacion.TipoEmpresa===''}">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">layers</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Contrato(s) por tipos de empresa</h4>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- Inicio de Tabs -->
+
+                                <!-- Inicio de Tabs opciones -->
+                                <ul class="nav nav-tabs" style="background: #0079bf !important" role="tablist">
+                                    <li [ngClass]="{'hidden':!verificarTipoEmpresa('C'), 'active':tabSelecionado == 'C'}" role="presentation"><a href="#comprador" aria-controls="comprador" role="tab" data-toggle="tab">Comprador</a></li>
+                                    <li [ngClass]="{'hidden':!verificarTipoEmpresa('P'), 'active':tabSelecionado == 'P'}" role="presentation"><a href="#proveedor" aria-controls="proveedor" role="tab" data-toggle="tab">Proveedor</a></li>
+                                    <li [ngClass]="{'hidden':!verificarTipoEmpresa('F'), 'active':tabSelecionado == 'F'}" role="presentation"><a href="#factor" aria-controls="factor" role="tab" data-toggle="tab">Finaciera</a></li>
+                                </ul>
+                                <!-- Fin de Tabs opciones -->
+
+                                <!-- Inicio de Tabs-Container -->
+                                <div class="tab-content">
+                                    <!-- Inicio de Tabs Comnprador -->
+                                    <div role="tabpanel" class="tab-pane" [ngClass]="{'active':tabSelecionado == 'C'}" id="comprador">
+                                        <!-- INICIO COMPRADOR EDITAR-->										
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <h4>Contrato comprador</h4>
+                                            </div>
+                                            <!-- Numero contrato -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Número de contrato</label>
+                                                    <input type="number" name="numero" class="form-control" [(ngModel)]="contratoComprador.Numero" disabled/>
+                                                </div>
+                                            </div>
+                                            <!-- Fecha inicio -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de inicio</label>
+                                                    <input type="text" name="fechacreacionfin" [disabled]="!editarContratoComprador" class="form-control" datepicker [(ngModel)]="contratoComprador.FechaInicio"/>
+                                                </div>
+                                            </div>
+                                            <!-- Fecha fin -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de fin</label>
+                                                    <input type="text" name="fechacreacionfin" [disabled]="!editarContratoComprador" class="form-control" datepicker [(ngModel)]="contratoComprador.FechaFin"/>
+                                                </div>
+                                            </div>
+                                            <!-- Usuarios -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Cantidad de usuarios</label>
+                                                    <input type="number" name="fechacreacionfin" [disabled]="!editarContratoComprador" [value]="1" min="1" max="99" class="form-control" [(ngModel)]="contratoComprador.CantidadUsuarios"/>
+                                                </div>
+                                            </div>
+                                            <!-- Tipo -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Tipo de contrato</label>
+                                                    <select name="IdTipoContrato" [disabled]="!editarContratoComprador" class="form-control" data-style="select-with-transition" [(ngModel)]="contratoComprador.IdTipoContrato" title="">
+                                                        <option *ngFor="let tipoContrato of tiposContratos" [ngValue]="tipoContrato.IdTipoContrato">{{tipoContrato.Descripcion}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-9 col-md-9 text-center">
+                                                <button type="button" class="btn btn-default" [ngClass]="{'hidden':!editarContratoComprador}" (click)="guardarContratoComprador()">Guardar</button>
+                                                <button class="btn btn-default" [ngClass]="{'hidden':!editarContratoComprador}" (click)="desactivarEditarContratoComprador()">Cancelar</button>
+                                                <button type="button" class="btn btn-default" [ngClass]="{'hidden':editarContratoComprador}" (click)="activarEditarContratoComprador()">Editar</button>
+                                            </div>
+                                        </div>
+                                        <!-- FIN COMPRADOR EDITAR -->
+                                        
+                                        <div class="row">
+                                            <div [ngClass]="{hidden: contratoComprador.IdContrato == ''}">
+                                                <div class="col-xs-12">															
+                                                    <nav class="navbar navbar-info" role="navigation">
+                                                        <div class="container-fluid">
+                                                            <div class="navbar-header">
+                                                                <span class="navbar-brand">Modulos - Comprador</span>
+                                                            </div>
+                                                        </div>
+                                                    </nav>	
+                                                </div>
+
+                                                <div class="col-xs-10 col-sm-10 col-md-10">																										
+                                                    <ng-container *ngFor="let moduloSeleccionado of modulosSeleccionadosComprador">
+                                                        <button class="btn btn-warning btn-md" style="margin: 5px 0">
+                                                            <b>{{moduloSeleccionado.Descripcion}}</b> ({{moduloSeleccionado.CodigoModulo}})  
+                                                        </button>
+                                                    </ng-container>
+                                                </div>
+                                                <div class="col-xs-2 col-sm-2 col-md-2">													
+                                                    <button class="btn btn-danger btn-just-icon btn-round" data-toggle="modal" data-target=".modal-contratodetalle-comprador">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                    <button type="button" class="btn btn-default" (click)="guardarContratoDetalleComprador()">Guardar</button>
+                                                    <a class="btn btn-fill btn-default" [routerLink]="['/contrato/adminebiz/buscar']">Regresar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Salto de linea --><br><br>
+                                    </div>
+                                    <!-- Fin de Tabs Comnprador -->
+
+
+                                    <!-- Inicio de Tabs Proveedor -->
+                                    <div role="tabpanel" class="tab-pane" [ngClass]="{'active':tabSelecionado == 'P'}" id="proveedor">
+                                        <!-- INICIO PROVEEDOR EDITAR-->										
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <h4>Contrato proveedor</h4>
+                                            </div>
+                                            <!-- Numero contrato -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Número de contrato</label>
+                                                    <input type="number" name="numero" class="form-control" [(ngModel)]="contratoProveedor.Numero" disabled/>
+                                                </div>
+                                            </div>
+                                            <!-- Fecha inicio -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de inicio</label>
+                                                    <input type="text" name="fechacreacionfin" [disabled]="!editarContratoProveedor" class="form-control" datepicker [(ngModel)]="contratoProveedor.FechaInicio"/>
+                                                </div>
+                                            </div>
+                                            <!-- Fecha fin -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de fin</label>
+                                                    <input type="text" name="fechacreacionfin" [disabled]="!editarContratoProveedor" class="form-control" datepicker [(ngModel)]="contratoProveedor.FechaFin"/>
+                                                </div>
+                                            </div>
+                                            <!-- Usuarios -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Cantidad de usuarios</label>
+                                                    <input type="number" name="fechacreacionfin" [disabled]="!editarContratoProveedor" [value]="1" min="1" max="99" class="form-control" [(ngModel)]="contratoProveedor.CantidadUsuarios"/>
+                                                </div>
+                                            </div>
+                                            <!-- Tipo -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Tipo de contrato</label>
+                                                    <select name="IdTipoContrato" [disabled]="!editarContratoProveedor" class="form-control" data-style="select-with-transition" [(ngModel)]="contratoProveedor.IdTipoContrato" title="">
+                                                        <option *ngFor="let tipoContrato of tiposContratos" [ngValue]="tipoContrato.IdTipoContrato">{{tipoContrato.Descripcion}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-9 col-md-9 text-center">
+                                                <button type="button" class="btn btn-default" [ngClass]="{'hidden':!editarContratoProveedor}" (click)="guardarContratoProveedor()">Guardar</button>
+                                                <button class="btn btn-default" [ngClass]="{'hidden':!editarContratoProveedor}" (click)="desactivarEditarContratoProveedor()">Cancelar</button>
+                                                <button type="button" class="btn btn-default" [ngClass]="{'hidden':editarContratoProveedor}" (click)="activarEditarContratoProveedor()">Editar</button>
+                                            </div>
+                                        </div>
+                                        <!-- FIN PROVEEDOR EDITAR -->
+                                        
+                                        <div class="row">
+                                            <div [ngClass]="{hidden: contratoProveedor.IdContrato == ''}">
+                                                <div class="col-xs-12">															
+                                                    <nav class="navbar navbar-info" role="navigation">
+                                                        <div class="container-fluid">
+                                                            <div class="navbar-header">
+                                                                <span class="navbar-brand">Modulos - Proveedor</span>
+                                                            </div>
+                                                        </div>
+                                                    </nav>	
+                                                </div>
+
+                                                <div class="col-xs-10 col-sm-10 col-md-10">																										
+                                                    <ng-container *ngFor="let moduloSeleccionado of modulosSeleccionadosProveedor">
+                                                        <button class="btn btn-warning btn-md" style="margin: 5px 0">
+                                                            <b>{{moduloSeleccionado.Descripcion}}</b> ({{moduloSeleccionado.CodigoModulo}}) 
+                                                        </button>
+                                                    </ng-container>
+                                                </div>
+                                                <div class="col-xs-2 col-sm-2 col-md-2">													
+                                                    <button class="btn btn-danger btn-just-icon btn-round" data-toggle="modal" data-target=".modal-contratodetalle-proveedor">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                    <button type="button" class="btn btn-default" (click)="guardarContratoDetalleProveedor()">Guardar</button>
+                                                    <a class="btn btn-fill btn-default" [routerLink]="['/contrato/adminebiz/buscar']">Regresar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Salto de linea --><br><br>
+                                    </div>
+                                    <!-- Fin de Tabs Proveedor -->
+
+                                    
+                                    <!-- Inicio de Tabs Factor -->
+                                    <div role="tabpanel" class="tab-pane" [ngClass]="{'active':tabSelecionado == 'F'}" id="factor">
+                                        <!-- INICIO FACTOR EDITAR-->										
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <h4>Contrato finaciera</h4>
+                                            </div>
+                                            <!-- Numero contrato -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Número de contrato</label>
+                                                    <input type="number" name="numero" class="form-control" [(ngModel)]="contratoFactor.Numero" disabled/>
+                                                </div>
+                                            </div>
+                                            <!-- Fecha inicio -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de inicio</label>
+                                                    <input type="text" name="fechacreacionfin" [disabled]="!editarContratoFactor" class="form-control" datepicker [(ngModel)]="contratoFactor.FechaInicio"/>
+                                                </div>
+                                            </div>
+                                            <!-- Fecha fin -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de fin</label>
+                                                    <input type="text" name="fechacreacionfin" [disabled]="!editarContratoFactor" class="form-control" datepicker [(ngModel)]="contratoFactor.FechaFin"/>
+                                                </div>
+                                            </div>
+                                            <!-- Usuarios -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Cantidad de usuarios</label>
+                                                    <input type="number" name="fechacreacionfin" [disabled]="!editarContratoFactor" [value]="1" min="1" max="99" class="form-control" [(ngModel)]="contratoFactor.CantidadUsuarios"/>
+                                                </div>
+                                            </div>
+                                            <!-- Tipo -->
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Tipo de contrato</label>
+                                                    <select name="IdTipoContrato" [disabled]="!editarContratoFactor" class="form-control" data-style="select-with-transition" [(ngModel)]="contratoFactor.IdTipoContrato" title="">
+                                                        <option *ngFor="let tipoContrato of tiposContratos" [ngValue]="tipoContrato.IdTipoContrato">{{tipoContrato.Descripcion}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-9 col-md-9 text-center">
+                                                <button type="button" class="btn btn-default" [ngClass]="{'hidden':!editarContratoFactor}" (click)="guardarContratoFactor()">Guardar</button>
+                                                <button class="btn btn-default" [ngClass]="{'hidden':!editarContratoFactor}" (click)="desactivarEditarContratoFactor()">Cancelar</button>
+                                                <button type="button" class="btn btn-default" [ngClass]="{'hidden':editarContratoFactor}" (click)="activarEditarContratoFactor()">Editar</button>
+                                            </div>
+                                        </div>
+                                        <!-- FIN FACTOR EDITAR -->
+                                        
+                                        <div class="row">
+                                            <div [ngClass]="{hidden: contratoFactor.IdContrato == ''}">
+                                                <div class="col-xs-12">															
+                                                    <nav class="navbar navbar-info" role="navigation">
+                                                        <div class="container-fluid">
+                                                            <div class="navbar-header">
+                                                                <span class="navbar-brand">Modulos - Financiera</span>
+                                                            </div>
+                                                        </div>
+                                                    </nav>	
+                                                </div>
+
+                                                <div class="col-xs-10 col-sm-10 col-md-10">																										
+                                                    <ng-container *ngFor="let moduloSeleccionado of modulosSeleccionadosFactor">
+                                                        <button class="btn btn-warning btn-md" style="margin: 5px 0">
+                                                            <b>{{moduloSeleccionado.Descripcion}}</b> ({{moduloSeleccionado.CodigoModulo}}) 
+                                                        </button>
+                                                    </ng-container>
+                                                </div>
+                                                <div class="col-xs-2 col-sm-2 col-md-2">													
+                                                    <button class="btn btn-danger btn-just-icon btn-round" data-toggle="modal" data-target=".modal-contratodetalle-factor">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                    <button type="button" class="btn btn-default" (click)="guardarContratoDetalleFactor()">Guardar</button>
+                                                    <a class="btn btn-fill btn-default" [routerLink]="['/contrato/adminebiz/buscar']">Regresar</a>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <!-- Salto de linea --><br><br>
+                                    </div>
+                                    <!-- Fin de Tabs Factor -->
+                                </div>
+                                <!-- Fin de Tabs-Container -->
+
+
+                                <!-- Fin de Tabs -->
+                                
+                            </div>    
+                        </div>
+                    </div>         
+                </div>
+
+                           
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- MODAL -->
+<div id="buscar-organizacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="card-title modal-title">Buscar organización</h4>
+            </div>
+            <div class="modal-body">
+                <form #o="ngForm" (ngSubmit)="buscarOrganizacion(o)" novalidate>                           
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-3">
+                            <div class="form-group label-floating">
+                                <label class="control-label">RUC
+                                </label>
+                                <input name="Ruc" ngModel #Ruc="ngModel" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-5">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Razón Social
+                                </label>
+                                <input name="Nombre" ngModel #Nombre="ngModel" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label">Grupo empresarial</label>
+                                <select class="form-control" data-style="select-with-transition" title="" name="IdGrupo" ngModel #IdGrupo="ngModel">
+                                    <option [ngValue]="">Seleccionar todos</option>
+                                    <option *ngFor="let grupoEmpresarial of gruposEmpresariales" [ngValue]="grupoEmpresarial.IdGrupo">{{grupoEmpresarial.Descripcion | uppercase}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 text-center">
+                            <div class="form-group">
+                                <button class="btn btn-default">Buscar</button>
+                                <button type="button" class="btn btn-default" (click)="reset(o)">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>     
+                </form>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">							
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center cursor-pointer">RUC</th>
+                                        <th class="text-center cursor-pointer">Organizacion</th>
+                                        <th class="text-center cursor-pointer">Grupo Empresarial</th>
+                                        <th class="text-center">Seleccionar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let organizacion of organizaciones" [ngClass]="{'danger':organizacion.Estado == 'INACT'}">
+                                        <td class="text-center">{{organizacion.Ruc}}</td>
+                                        <td>{{ organizacion.Nombre | uppercase }}</td>
+                                        <td>{{ organizacion.GrupoEmpresarial | uppercase }}</td>
+                                        <td class="td-actions text-center">
+                                            <button rel="tooltip" type="button" class="btn btn-success btn-round" (click)="selecionOrganizacion(organizacion.IdOrganizacion)">
+                                                <i class="material-icons">add</i>
+                                                <div class="ripple-container"></div>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="SeleccionarCliente($event)" [disabled]="btnSeleccionar">Seleccionar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+            -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MODAL MODULOS CONTRATODETALLE Comprador -->
+<div id="modal-contratodetalle-comprador" class="modal fade modal-contratodetalle-comprador" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modulos - Comprador</h4>
+                </div>
+                <div class="modal-body">
+                    <ng-container *ngFor="let moduloDisponible of modulosDisponibles">
+                        <button 
+                        class="list-group-item" 
+                        [ngClass]="{'active':seleccionComprador(moduloDisponible), 'list-group-item-info':seleccionComprador(moduloDisponible)}"
+                        (click)="selecionarComprador(moduloDisponible)">
+                            <b>{{moduloDisponible.Descripcion}}</b>({{moduloDisponible.CodigoModulo}})
+                        </button>
+                    </ng-container>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <!--<button type="button" class="btn btn-default" (click)="guardarContratoDetalleComprador()">Guardar</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL MODULOS CONTRATODETALLE Proveedor -->
+    <div id="modal-contratodetalle-proveedor" class="modal fade modal-contratodetalle-proveedor" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modulos - Proveedor</h4>
+                </div>
+                <div class="modal-body">
+                    <ng-container *ngFor="let moduloDisponible of modulosDisponibles">
+                        <button 
+                        class="list-group-item" 
+                        [ngClass]="{'active':seleccionProveedor(moduloDisponible), 'list-group-item-info':seleccionProveedor(moduloDisponible)}"
+                        (click)="selecionarProveedor(moduloDisponible)">
+                            <b>{{moduloDisponible.Descripcion}}</b>({{moduloDisponible.CodigoModulo}})
+                        </button>
+                    </ng-container>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <!--<button type="button" class="btn btn-default" (click)="guardarContratoDetalleProveedor()">Guardar</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL MODULOS CONTRATODETALLE Factor -->
+    <div id="modal-contratodetalle-factor" class="modal fade modal-contratodetalle-factor" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modulos - Financiera</h4>
+                </div>
+                <div class="modal-body">
+                    <ng-container *ngFor="let moduloDisponible of modulosDisponibles">
+                        <button 
+                        class="list-group-item" 
+                        [ngClass]="{'active':seleccionFactor(moduloDisponible), 'list-group-item-info':seleccionFactor(moduloDisponible)}"
+                        (click)="selecionarFactor(moduloDisponible)">
+                            <b>{{moduloDisponible.Descripcion}}</b>({{moduloDisponible.CodigoModulo}})
+                        </button>
+                    </ng-container>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <!--<button type="button" class="btn btn-default" (click)="guardarContratoDetalleFactor()">Guardar</button>-->
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,65 @@
+body{
+		font-family:verdana;
+		font-size:80%;
+		}
+	#imageSlideshowHolder{
+
+		/* This is a CSS hack in order to get a nice look in IE 5.5 and lower 
+
+		In these versions of Internet Explorer, we need to add borders and padding to the width. In this example, we have a 3 pixel
+		border on all sides. This means that the width in IE5.5 should be 606 pixels(600 + border 3px on the left + border 3 px on the right). Height
+		should be set to 456 pixels(450 + 3 +3). IE 5.5 will ignore the width attributes below the first line. These will be applied to other browsers.
+
+		*/
+		/* CSS HACK */
+		width: 606px;	/* IE 5.x */
+		width/* */:/**/600px;	/* Other browsers */
+		width: /**/600px;
+		
+		/* CSS HACK */
+		height: 256px;	/* IE 5.x */
+		height/* */:/**/250px;	/* Other browsers */
+		height: /**/250px;
+		
+		background-color:#FFF;
+		border:1px solid #CCCCCC;
+		position:relative;	/* Never change this value */
+		
+	}
+	.imageInGallery{		
+		width:600px;
+		height:250px;
+		background-color:#FFF;
+		
+		/* Never change these 3 value */
+		left:0px;
+		top:0px;
+		position:absolute;	
+	}
+	#imageSlideshowHolder img{
+		position:absolute;
+	}
+	
+	/*chris - description overlay*/
+	#the_captions{
+		display:none;
+		}
+	.imageInGallery_DESC{
+		position:absolute;
+		color:#FFFFFF;
+		padding:30px;
+		padding-top:25px;
+		margin-left:30px;
+		margin-top:5px;
+		z-index:100;
+		/*height:200px;*/
+		width:240px;
+		background:url("images/bg.png");
+		font-size:80%;
+		}
+	.imageInGallery_DESC h1{
+		color:#99cc33;
+		font-size:140%;
+		margin:0px;
+		padding:0px 0px 5px 0px;
+		}

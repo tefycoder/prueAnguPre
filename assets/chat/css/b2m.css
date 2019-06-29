@@ -1,0 +1,45 @@
+.nouline12 {
+	FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.nouline9 {
+	FONT-SIZE: 10px; COLOR: red; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.fontreg {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.fontreg10 {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.fontregam11 {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial Narrow
+}
+.fontreg9 {
+	FONT-SIZE: 9px; FONT-FAMILY: Arial
+}
+.fontgreenreg {
+	FONT-SIZE: 12px; COLOR: green; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.fontgreenbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: green; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.fontgreensmall {
+	FONT-SIZE: 10px; COLOR: green; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.fontbrick {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #cc3300; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.fontorange {
+	FONT-SIZE: 12px; COLOR: #f4d021; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.headertable {
+	BACKGROUND-COLOR: #ebebeb
+}
+.bodytable {
+	BACKGROUND-COLOR: #C8D7E3
+}
+.bgwhite {
+	BACKGROUND-COLOR: #ffffff
+}
+.bgbody {
+	BACKGROUND-COLOR: #3C5F84
+}

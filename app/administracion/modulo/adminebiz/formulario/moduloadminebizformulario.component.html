@@ -1,0 +1,149 @@
+<div class="main-content">
+  	<div class="container-fluid">
+    	<div class="card">
+			<div class="card-header card-header-icon" data-background-color="blue">
+				<i class="material-icons">category</i>
+			</div>
+			<div class="card-content">
+				<h4 class="card-title">{{title}}</h4>
+				<form id="formulario">
+					<div class="row">
+						<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Codigo de módulo<span class="star">*</span></label>
+								<input name="CodigoModulo" pattern="[A-Z0-9]{1,10}" maxlength="10" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="modulo.CodigoModulo">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Siglas<span class="star">*</span></label>
+								<input name="Mini" pattern="[A-Z]{1,3}" maxlength="3" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="modulo.Mini" >
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Nombre<span class="star">*</span></label>
+								<input name="Descripcion" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9-. ]{1,50}" maxlength="50" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="modulo.Descripcion">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Orden<span class="star">*</span></label>
+								<input name="Orden" pattern="[0-9]{1,3}" min="0" max="999" [disabled]="!guardar" class="form-control" type="number" [(ngModel)]="modulo.Orden">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<ul class="nav nav-tabs" style="background: #0079bf !important" role="tablist">
+							<li role="presentation" class="active"><a href="#comprador" aria-controls="home" role="tab" data-toggle="tab">Comprador</a></li>
+							<li role="presentation"><a href="#proveedor" aria-controls="profile" role="tab" data-toggle="tab">Proveedor</a></li>
+							<li role="presentation"><a href="#factor" aria-controls="messages" role="tab" data-toggle="tab">Financiera</a></li>
+						</ul>
+						<!-- Comprador -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="comprador">
+								<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group label-floating is-empty">
+										<label class="control-label">URI - Comprador<span class="star">*</span></label>
+										<input name="moduloXUrlCompradorUrl" pattern="[a-z1-9./-]{1,}" maxlength="100" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="moduloXUrlComprador.Url">
+										<span class="material-icons form-control-feedback">clear</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+									<div class="form-group label-floating is-empty">
+										<label class="control-label">Descripcion URI - Comprador</label>
+										<input name="moduloXUrlCompradorDescripcion" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="moduloXUrlComprador.Descripcion">
+										<span class="material-icons form-control-feedback">clear</span>
+									</div>
+								</div>
+								<!--Boton Comprador-->
+								<h5>Seleccione botones para módulo comprador</h5>
+								<div class="list-group">
+									<ng-container *ngFor="let botonDisponible of botonesDisponibles">
+										<button [disabled]="!guardar"
+										class="list-group-item" 
+										[ngClass]="{'active':seleccionComprador(botonDisponible), 'list-group-item-info':seleccionComprador(botonDisponible)}"
+										(click)="selecionarComprador(botonDisponible)">
+											{{botonDisponible.Nombre | uppercase}}
+										</button>
+									</ng-container>
+								</div>
+							</div>
+							<!-- Proveedor -->
+							<div role="tabpanel" class="tab-pane" id="proveedor">
+								<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group label-floating is-empty">
+										<label class="control-label">URI - Proveedor<span class="star">*</span></label>
+										<input name="moduloXUrlProveedorUrl" pattern="[a-z1-9./-]{1,}" maxlength="100" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="moduloXUrlProveedor.Url">
+										<span class="material-icons form-control-feedback">clear</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+									<div class="form-group label-floating is-empty">
+										<label class="control-label">Descripcion URI - Proveedor</label>
+										<input name="moduloXUrlProveedorDescripcion" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="moduloXUrlProveedor.Descripcion">
+										<span class="material-icons form-control-feedback">clear</span>
+									</div>
+								</div>
+								<!--Boton Proveedor-->
+								<h5>Seleccione botones para módulo proveedor</h5>
+								<ng-container *ngFor="let botonDisponible of botonesDisponibles">
+									<button [disabled]="!guardar"
+									class="list-group-item" 
+									[ngClass]="{'active':seleccionProveedor(botonDisponible), 'list-group-item-info':seleccionProveedor(botonDisponible)}"
+									(click)="selecionarProveedor(botonDisponible)">
+										{{botonDisponible.Nombre | uppercase}}
+									</button>
+								</ng-container>
+								
+							</div>
+							<!-- Factor -->
+							<div role="tabpanel" class="tab-pane" id="factor">
+								<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group label-floating is-empty">
+										<label class="control-label">URI - Financiera<span class="star">*</span></label>
+										<input name="moduloXUrlFactorUrl" pattern="[a-z1-9./-]{1,}" maxlength="100" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="moduloXUrlFactor.Url">
+										<span class="material-icons form-control-feedback">clear</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+									<div class="form-group label-floating is-empty">
+										<label class="control-label">Descripcion URI - Financiera</label>
+										<input name="moduloXUrlFactorDescripcion" [disabled]="!guardar" class="form-control" type="text" [(ngModel)]="moduloXUrlFactor.Descripcion">
+									</div>
+								</div>
+								<!--Boton Factor-->
+								<h5>Seleccione botones para módulo financiera</h5>
+								<ng-container *ngFor="let botonDisponible of botonesDisponibles">
+									<button [disabled]="!guardar" 
+									class="list-group-item" 
+									[ngClass]="{'active':seleccionFactor(botonDisponible), 'list-group-item-info':seleccionFactor(botonDisponible)}"
+									(click)="selecionarFactor(botonDisponible)">
+										{{botonDisponible.Nombre | uppercase}}
+									</button>
+								</ng-container>
+								
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+							<button class="btn btn-default left" [ngClass]="{'hidden': !guardar}" type="submit" (click)="guardarModulo($event)">GUARDAR</button>
+							<button class="btn btn-default left" [ngClass]="{'hidden': guardar}" type="button" (click)="activarEditar()">Editar</button>
+							<a class="btn btn-fill btn-default" [routerLink]="['/modulo/adminebiz/buscar']">Regresar</a>
+						</div>
+					</div> 
+				</form>                  
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

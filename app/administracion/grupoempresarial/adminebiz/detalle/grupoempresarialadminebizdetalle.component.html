@@ -1,0 +1,84 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" [ngClass]="{'hidden': grupoEmpresarial.Descripcion.length==0}">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="card-title">{{grupoEmpresarial.Descripcion}}</h4>
+                        <p class="category">{{grupoEmpresarial.Codigo}}</p>
+                    </div>
+                    <div class="card-content">                        
+                        <div class="col-xs-12 text-right">
+                            <button class="btn btn-default" data-toggle="modal" data-target=".modal-organizacion" [routerLink]="['/grupoempresarial/adminebiz/buscar']">Volver </button>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="table-responsive">							
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Ruc')">RUC
+                                                <span [ngClass]="{'hidden':ordenar != 'Ruc'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Nombre')">Organizacion
+                                                <span [ngClass]="{'hidden':ordenar != 'Nombre'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Estado')">Estado 															
+                                                <span [ngClass]="{'hidden':ordenar != 'Estado'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div class="container-loading" [ngClass]="{invisible: loading}">
+                                            <div class="lds-ripple"><div></div><div></div></div>
+                                        </div>
+                                        <tr *ngFor="let organizacion of organizaciones" [ngClass]="{'danger':organizacion.Estado == 'INACT'}">
+                                            <td class="text-center">{{organizacion.Ruc}}</td>
+                                            <td>{{ organizacion.Nombre }}</td>
+                                            <td class="text-center">
+                                                <div *ngIf="organizacion.Estado == 'ACTIV'">Activo</div>
+                                                <div *ngIf="organizacion.Estado == 'INACT'">Inactivo</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br><br><br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade modal-organizacion" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Seleccione organizacion</h4>
+              </div>
+              <div class="modal-body">
+                  Lista orgnizaciones
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secundary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-default">Save changes</button>
+              </div>
+          </div>
+        </div>
+      </div>

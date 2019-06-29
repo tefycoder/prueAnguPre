@@ -1,0 +1,122 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card" [ngClass]="{'hidden': !mostrarCard}">
+            <div class="card-header card-header-icon" data-background-color="blue">
+                <i class="material-icons">vpn_key</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">{{title}}</h4>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                        <div class="form-group label-floating">
+                            <label class="control-label">RUC</label>
+                            <input type="text" disabled class="form-control" [(ngModel)]="usuarioXOrganizacion.Ruc"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Razón social</label>
+                            <input type="text" disabled class="form-control" [(ngModel)]="usuarioXOrganizacion.RazonSocial"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Usuario</label>
+                            <input type="text" disabled class="form-control" [(ngModel)]="usuarioXOrganizacion.Usuario"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Nombre completo</label>
+                            <input type="text" disabled class="form-control" [(ngModel)]="usuarioXOrganizacion.NombreCompleto"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Rol</label>
+                            <input type="text" disabled class="form-control" [(ngModel)]="usuarioXOrganizacion.Rol"/>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <!-- Inicio Tabs -->
+                        <div class="card">
+                            <div class="card-header card-header-icon" data-background-color="blue">
+                                <i class="material-icons">touch_app</i>
+                            </div>
+                            <div class="card-content" >
+                                <h4 class="card-title">Permisos</h4>
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="card">
+                                            <div class="card-content" >
+                                                <h4 class="card-title">Perfil(es)</h4>
+                                                <div class="row" id="perfiles">
+                                                    <ng-container *ngFor="let listaContrato of this.usuarioXOrganizacion.ListaContrato">
+                                                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                                            <div class="togglebutton">
+                                                                <label>
+                                                                    <input [id]="listaContrato.TipoEmpresa" type="checkbox" (click)="cargarContratosDetalle(listaContrato.TipoEmpresa)">
+                                                                    <span [ngClass]="{'hidden':listaContrato.TipoEmpresa != 'C'}">
+                                                                        Comprador
+                                                                    </span>
+                                                                    <span [ngClass]="{'hidden':listaContrato.TipoEmpresa != 'P'}">
+                                                                        Proveedor
+                                                                    </span>
+                                                                    <span [ngClass]="{'hidden':listaContrato.TipoEmpresa != 'F'}">
+                                                                        Finaciera
+                                                                    </span>
+                                                                </label>
+                                                            </div>                                               
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <!-- Inicio lista de modulos -->                                                        
+                                        <ul class="list-unstyled" *ngFor="let modulo of moduloBotonesDisponibles.ListaModulo">
+                                            <li style="font-size:28px;color:#0079bf">
+                                                <div class="form-group">
+                                                    <div class="checkbox modulo">
+                                                        <label>
+                                                            <input type="checkbox" [value]="modulo.IdModulo" [id]="modulo.IdModulo">{{modulo.Descripcion}}
+                                                        </label>
+                                                        <button class="btn btn-warning btn-sm" [ngClass]="{'btn-simple': default != modulo.IdModulo}" style="position: absolute; right: 0px; top: -10px;" (click)="seleccionarDefault(modulo.IdModulo)">default</button>
+                                                    </div>
+                                                    <!-- Inicio lista de botones del modulo -->       
+                                                    <ul [class]="modulo.IdModulo" *ngFor="let boton of modulo.ListaBoton">
+                                                        <li>
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input [id]="modulo.IdModulo+boton.IdBoton" type="checkbox" [value]="boton.IdBoton" (click)="seleccionBoton(modulo.IdModulo)">
+                                                                    {{boton.Nombre | uppercase}}
+                                                                </label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <!-- Fin lista de botones del modulo -->   
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- Fin lista de modulos -->       
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Tabs -->
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <button class="btn btn-default left" (click)="guardarOrganizacionUsuarioModuloBoton();">Guardar</button>
+                        <a class="btn btn-fill btn-default" [routerLink]="['/accesousuario/adminebiz/buscar']">Regresar</a>
+                    </div>
+                </div>    
+              </div>
+            </div>
+        </div>
+      </div>
+      

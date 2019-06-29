@@ -1,0 +1,667 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <form method="#" action="#">
+            <div class="card-header card-header-text" data-background-color="blue">
+                <h4 class="card-title">Guía</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-header">
+                <h4 class="card-title">Datos Generales</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <div class="form-group label-floating">
+                            <label class="control-label">N° Guía</label>
+                            <input type="text" name="nroguia1" [disabled]="toggleButton" [(ngModel)]="guia.nroguia1" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-7">
+                          <div class="form-group label-floating">
+                            <input type="text" name="nroguia2" [disabled]="toggleButton" [(ngModel)]="guia.nroguia2" class="form-control">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Organización Compradora 
+                        </label>
+                        <input name="razonsocialcliente" type="text" [disabled]="toggleButton" [(ngModel)]="guia.razonsocialcliente" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Organización Proveedora
+                          </label>
+                        <input name="razonsocialproveedor" type="text" [disabled]="toggleButton" [(ngModel)]="guia.razonsocialproveedor" class="form-control">
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group label-floating">
+                        <label class="control-label">RUC Organización Compradora</label>
+                        <input name="ruccliente" type="text" [disabled]="toggleButton" [(ngModel)]="guia.ruccliente" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group label-floating">
+                        <label class="control-label">RUC Organización Proveedora</label>
+                        <input name="rucproveedor" [disabled]="toggleButton" type="text" [(ngModel)]="guia.rucproveedor" class="form-control">
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Motivo de Guía</label>
+                        <select id="motivoguia" name="motivoguia" class="form-control" [(ngModel)]="guia.motivoguia" [disabled]="toggleButton">
+                          <option Value=""></option>
+                          <option *ngFor="let opt of listMotivoGuiaCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Número ERP de Documento Material</label>
+                        <input name="nroerpdocmaterial" type="text" [disabled]="toggleButton" [(ngModel)]="guia.nroerpdocmaterial" class="form-control">
+                      </div>
+                    </div>
+                    <!--
+                    <div class="col-sm-4">
+                      <div class="form-group label-floating">
+                          <label class="control-label">Estado Web</label>
+                          <select id="estado" [(ngModel)]="guia.estado" name="estado" class="form-control" [disabled]="toggleButton">
+                              <option Value=""></option>
+                              <option *ngFor="let opt of listEstadoCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+
+                          </select>
+                      </div>
+                    </div>
+                    -->
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Fecha de Emisión
+                          </label>
+                      <input name="fechaemision" [(ngModel)]="guia.fechaemision" datepicker disabled type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Fecha de Inicio de Traslado
+                          </label>
+                      <input name="fechainiciotraslado" [(ngModel)]="guia.fechainiciotraslado" datepicker disabled type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Fecha Probable de Arribo 
+                          </label>
+                      <input name="fechaprobablearribo" [(ngModel)]="guia.fechaprobablearribo" datepicker disabled type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Observaciones
+                      </label>
+                      <textarea name="observaciones" [(ngModel)]="guia.observaciones" class="form-control" [disabled]="toggleButton"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="guia.motivorechazosap" class="row" >
+                  <div class="col-sm-12">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Motivo Rechazo SAP
+                      </label>
+                      <textarea style="color:red;" name="motivorechazosap" id="motivorechazosap" [(ngModel)]="guia.motivorechazosap" maxlength="200" class="form-control" [disabled]="toggleButton"></textarea>
+                      <span class="help-block" id="lblMotRzoSAP">200 caracteres máximo (0)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="guia.motivoerrorsap" class="row" >
+                  <div class="col-sm-12">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Motivo Error SAP
+                      </label>
+                      <textarea style="color:red;" name="motivoerrorsap" id="motivoerrorsap" [(ngModel)]="guia.motivoerrorsap" maxlength="200" class="form-control" [disabled]="toggleButton"></textarea>
+                      <span class="help-block" id="lblMotErrorSAP">200 caracteres máximo (0)</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="card-header">
+                <h4 class="card-title">Datos Transportista</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Tipo Documento</label>
+                          <select id="tipodoctransporte" name="tipodoctransporte" class="form-control" [(ngModel)]="guia.tipodoctransporte" [disabled]="toggleButton">
+                            <option Value=""></option>
+                            <option *ngFor="let opt of listTipoDocIdentidad" value="{{opt.valor}}"> {{opt.desc}} </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="form-group label-floating">
+                          <label class="control-label">N° Documento</label>
+                          <input type="text" name="rucdnitransporte" [(ngModel)]="guia.rucdnitransporte" class="form-control" [disabled]="toggleButton">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Razon Social / Nombre
+                      </label>
+                      <input name="razonsocialnombretransporte" [(ngModel)]="guia.razonsocialnombretransporte" type="text" class="form-control"
+                        [disabled]="toggleButton">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">N° Placa</label>
+                      <input type="text" name="placatransporte" class="form-control" [(ngModel)]="guia.placatransporte" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Dirección
+                      </label>
+                      <input name="direcciontransporte" type="text" class="form-control" [(ngModel)]="guia.direcciontransporte" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Código de Reg. MTC</label>
+                      <input type="text" name="codigomtctransporte" class="form-control" [(ngModel)]="guia.codigomtctransporte" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Tipo Transporte
+                      </label>
+                      <select name="tipotransporte" id="tipotransporte" [(ngModel)]="guia.tipotransporte" class="form-control" [disabled]="toggleButton">
+                        <option Value=""></option>
+                        <option *ngFor="let opt of listTransporteGuiaCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-header">
+                <h4 class="card-title">Datos de la Carga</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Punto Partida</label>
+                      <input type="text" name="puntopartida" class="form-control" [(ngModel)]="guia.puntopartida" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Punto LLegada</label>
+                      <input type="text" name="puntollegada" class="form-control" [(ngModel)]="guia.puntollegada" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Almancén Destino</label>
+                      <input type="text" name="alamcendestino" [(ngModel)]="guia.alamcendestino" class="form-control" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Total Bultos</label>
+                      <input type="text" name="totalbultos" [(ngModel)]="guia.totalbultos" class="form-control" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Total Volúmen</label>
+                          <input type="text" name="totalvolumen" [(ngModel)]="guia.totalvolumen" class="form-control" [disabled]="toggleButton">
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="form-group label-floating">
+                          <label class="control-label"></label>
+                          <select id="totalvolumenund" name="totalvolumenund" [(ngModel)]="guia.totalvolumenund" class="form-control" [disabled]="toggleButton">
+                            <option Value=""></option>
+                            <option *ngFor="let opt of listUnidadMedidaCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Total Peso Bruto</label>
+                          <input type="text" name="totalpesobruto" [(ngModel)]="guia.totalpesobruto" class="form-control" [disabled]="toggleButton">
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="form-group label-floating">
+                          <label class="control-label"></label>
+                          <select id="totalpesobrutound" name="totalpesobrutound" [(ngModel)]="guia.totalpesobrutound" class="form-control" [disabled]="toggleButton">
+                            <option Value=""></option>
+                            <option *ngFor="let opt of listUnidadMedidaPesoCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Tara</label>
+                          <input type="text" name="tara" [(ngModel)]="guia.tara" class="form-control" [disabled]="toggleButton">
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="form-group label-floating">
+                          <label class="control-label"></label>
+                          <select name="totalpesobrutound" [(ngModel)]="guia.totalpesobrutound" class="form-control" disabled>
+                            <option Value=""></option>
+                            <option *ngFor="let opt of listUnidadMedidaPesoCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Total Peso Neto</label>
+                          <input type="text" name="totalpesoneto" [(ngModel)]="guia.totalpesoneto" class="form-control" [disabled]="toggleButton">
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="form-group label-floating">
+                          <label class="control-label"></label>
+                          <select name="totalpesobrutound" [(ngModel)]="guia.totalpesobrutound" class="form-control" disabled>
+                            <option Value=""></option>
+                            <option *ngFor="let opt of listUnidadMedidaPesoCombo" value="{{opt.valor}}"> {{opt.desc}} </option>   
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header card-header-icon" data-background-color="blue">
+                  <i class="material-icons">assignment</i>
+                </div>
+                <div class="card-content">
+                  <h4 class="card-title">Detalle de Artículos</h4>
+
+                  <div class="material-datatables table-responsive" style="display:block">
+                    <table id="dtArticulos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                      <thead>
+                        <tr>
+
+                          <th>N° Item</th>
+                          <th>N° OC</th>
+                          <th>N° Item OC</th>
+                          <th>Código de Producto</th>
+                          <th>Descripción del Producto</th>
+                          <th>Und. de Medida del Pedido</th>
+                          <th>Cantidad del Pedido</th>
+                          <th>Cantidad Recibida</th>
+                          <th>Cantidad Despachada</th>
+                          <th>Und. de Medida de Despacho</th>
+                          <th>Estado</th>
+
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Archivos Adjuntos</h4>
+
+                      <div class="material-datatables table-responsive">
+                        <table id="dtArchivos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                          <thead>
+                            <tr>
+
+                              <th width="20%">Nombre</th>
+                              <th width="60%">Descripción</th>
+                              <th class="disabled-sorting text-center" width="20%">Acciones</th>
+                            </tr>
+                          </thead>
+
+
+                        </table>
+                      </div>
+                    </div>
+                    <!-- end content-->
+                  </div>
+                  <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-fill btn-default pull-right" routerLink="/sm-guia/comprador/buscar">Regresar</button>
+              <button *ngIf="botonImprimir.visible" [disabled]="!botonImprimir.habilitado" class="btn btn-fill btn-default pull-right" (click)="print($event)">{{botonImprimir.Titulo}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="display:none">
+
+  <div id="print-section-guia" style='font-family: Arial, Helvetica, sans-serif;color: #000;font-size: 12px;'>
+    <table width="100%" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style='font-family: Arial, Helvetica, sans-serif;color: #000;font-size: 12px;'>
+      <tbody>
+        <tr>
+          <td align="center">
+
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td colspan="2" bgcolor="#fff" align="left" valign="middle">
+                    <img src="{{this.baseurl}}assets/img/faces/centenario.png" width="250" style="padding:0; margin:0; border:0; display:none">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" bgcolor="#fff" align="center" valign="top" style="font-size: 20px">
+                    <b>Guía de Materiales  {{this.guia.nroguia}}</b><br><br>
+                  </td>
+                </tr>
+
+
+
+
+              </tbody>
+            </table>
+
+            <table width="900" class="print-table" cellpadding="5" border='0' style="border:1px solid #999;border-collapse: collapse;"
+              cellspacing="0" bgcolor="#fff">
+              <tbody>
+
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;font-size: 18px">
+                    <b>Datos Generales</b>
+                  </td>
+                </tr>
+                <tr style="border:1px solid #999;">
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;width: 50%">
+                    <b>Organización Compradora:</b><br> {{this.guia.razonsocialcliente}}
+                  </td>
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;width: 50%">
+                    <b>Organización Proveedora:</b><br> {{this.guia.razonsocialproveedor}}
+                  </td>
+                </tr>
+                <tr style="border:1px solid #999;">
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>RUC Organización Compradora:</b><br> {{this.guia.ruccliente}}
+                  </td>
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>RUC Organización Proveedora:</b><br> {{this.guia.rucproveedor}}
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Motivo de Guía:</b><br> {{this.guia.motivoguia_text}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Numero ERP Documento de Material:</b><br> {{this.guia.nroerpdocmaterial}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Estado Guía:</b><br> {{this.guia.estado_text}}
+                  </td>
+                </tr>
+
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Fecha de Emisión:</b><br> {{this.guia.fechaemision}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Fecha de Inicio de Traslado:</b><br> {{this.guia.fechainiciotraslado}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Fecha Probable de Arribo:</b><br> {{this.guia.fechaprobablearribo}}
+                  </td>
+                </tr>
+                <tr style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Observaciones:</b><br> {{this.guia.observaciones}}
+                  </td>
+                </tr>
+                <tr *ngIf="guia.motivorechazosap" style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Motivo Rechazo SAP:</b><br> {{this.guia.motivorechazosap}}
+                  </td>
+                </tr>
+                <tr *ngIf="guia.motivoerrorsap" style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Motivo Error SAP:</b><br> {{this.guia.motivoerrorsap}}
+                  </td>
+                </tr>
+                <tr style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;font-size: 18px">
+                    <b>Datos del Transportista</b>
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="3" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Tipo de Documento:</b><br> {{this.guia.tipodoctransporte_text}}
+                  </td>
+                  <td colspan="3" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Nro. Documento:</b><br> {{this.guia.rucdnitransporte}}
+                  </td>
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Razón Social/Nombre:</b><br> {{this.guia.razonsocialnombretransporte}}
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Nro. Placa:</b><br> {{this.guia.placatransporte}}
+                  </td>
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Dirección:</b><br> {{this.guia.direcciontransporte}}
+                  </td>
+                </tr>
+                <tr style="border:1px solid #999;">
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Código Reg. de MTC:</b><br> {{this.guia.codigomtctransporte}}
+                  </td>
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Tipo de Transporte:</b><br> {{this.guia.tipotransporte_text}}
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;font-size: 18px">
+                    <b>Datos de la Carga</b>
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Punto de Partida:</b><br> {{this.guia.puntopartida}}
+                  </td>
+                  <td colspan="6" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Punto de Llegada:</b><br> {{this.guia.puntollegada}}
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Almacen Destino:</b><br> {{this.guia.alamcendestino}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Total Bultos:</b><br> {{this.guia.totalbultos}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Total Volumen:</b><br> {{this.guia.totalvolumen}}{{this.guia.totalvolumenund_text}}
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Total Peso Bruto:</b><br> {{this.guia.totalpesobruto}}{{this.guia.totalpesobrutound_text}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Tara:</b><br> {{this.guia.tara}}{{this.guia.totalpesobrutound_text}}
+                  </td>
+                  <td colspan="4" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                    <b>Total Peso Neto:</b><br> {{this.guia.totalpesoneto}}{{this.guia.totalpesobrutound_text}}
+                  </td>
+                </tr>
+
+                <tr style="border:1px solid #999;">
+                  <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;font-size: 18px">
+                    <b>Detalle de los Artículos</b>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tr style="border:1px solid #999;">
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>No. Item</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>No. OC</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>No. Item OC</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Código de Producto</b>
+                </td>
+                <td colspan="2" bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Descripción del Producto</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Und. de Medida del Pedido</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Cantidad del Pedido</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Cantidad Recibida</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Cantidad Despachada</b>
+                </td>
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Und. de Medida de Despacho</b>
+                </td>
+
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  <b>Estado</b>
+                </td>
+
+
+
+              </tr>
+              <tr *ngFor="let row of this.guia.articulos" ng-class="trhighlight">
+                <td bgcolor="#fff" align="center" valign="top" style="border:1px solid #999;">
+                  {{row.nroitem}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.nrooc}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.nroitemoc}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.codproducto}}
+                </td>
+                <td colspan="2" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;">
+                  {{row.descproducto}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.unidadmedida}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.cantidadpedido}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.cantidadrecibida}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.cantidaddespachada}}
+                </td>
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.unidadmedidadespacho}}
+                </td>
+
+                <td bgcolor="#fff" align="right" valign="top" style="border:1px solid #999;">
+                  {{row.estado}}
+                </td>
+              </tr>
+
+            </table>
+
+
+
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+
+  </div>
+
+
+</div>

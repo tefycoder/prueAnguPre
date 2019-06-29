@@ -1,0 +1,33 @@
+export class Contrato {
+    IdContrato?: string = '';
+    Numero?: string = '';
+    FechaInicio?: string = '';
+    FechaFin?: string = "";
+    IdTablaEstado?: string = '';
+    IdRegistroEstado?: string = '';
+    NombreEstado?: string = '';
+    IdTipoContrato?: string = '';
+    IdOrganizacion?: string = '';
+    IdTablaPeriodoPago?: string = '';
+    IdRegistroPeriodoPago?: string = '';
+    NombrePeriodoPago?: string = '';
+    CantidadUsuarios?: number = 1;
+    MonedaTotalImplementacion?: string = '';
+    CostoTotalImplementacion?: number = 0;
+    PeriodoMantenimiento?: string = '';
+    MonedaMantenimiento?: string = '';
+    CostoMantenimiento?: number = 0;
+    NumeroMaxTx?: string = '';
+    NumeroMaxTxFree?: string = '';
+    FlgBanners?: string = '';
+    FlgHelpDesk?: string = '';
+    FlgCubos?: string = '';
+    FlgLimiteQuery?: string = '';
+    DiasLimite?: number = 0;
+    Habilitado: number;
+    Version?: number = 1;
+    IdPortal?: string = '';
+    TipoEmpresa?: string = '';
+    IdUsuarioModificacion:string;
+    Organizacion:string;
+}

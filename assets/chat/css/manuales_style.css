@@ -1,0 +1,80 @@
+
+/*.dTable{
+	width:400px;
+	margin:0 auto;
+}*/
+a {   
+ text-decoration:none;
+ color:#0070c0;
+} 
+a:link {   
+ text-decoration:none;
+ color:#0070c0;
+} 
+.tManual  {
+    /*border:2px solid #00B0F0;*/
+	border-collapse:collapse;
+	border-spacing:0;
+	align:center;
+}
+.tManual td{
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	padding:3px 10px;
+	border:2px solid #00B0F0;
+	/*border-style:solid;*/
+	/*border-width:1px;*/
+	overflow:hidden;
+	word-break:normal;
+}
+.tManual th{
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	padding:3px 10px;
+	border:2px solid #00B0F0;
+	/*border-style:solid;*/
+	/*border-width:1px;*/
+	overflow:hidden;
+	word-break:normal;
+}
+.tManual .bodyTab{
+	font-style:italic;
+	font-size:14px;
+	/*font-family:Verdana, Geneva, sans-serif !important;*/
+	font-family:Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+	color:#0070c0;
+	text-align:center;
+}
+.tManual .headTab{
+	font-weight:bold;
+	font-style:italic;
+	font-size:15px;
+	/*font-family:Verdana, Geneva, sans-serif !important;*/
+	font-family:Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+	background-color:#8db4e2;
+	text-align:center;
+}
+/*
+.tBottons{
+	width:200px;
+	margin:15px auto 0 auto;
+}*/
+
+.tBottons  {
+    border:0px solid #FFFFFF;
+	border-collapse:collapse;
+	border-spacing:0;
+	color:#0070c0;
+	align:center;
+	margin-top:10px;
+}
+.bCell img{
+	vertical-align:middle;
+}
+.bCell span{
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:14px;
+	font-family:Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+}

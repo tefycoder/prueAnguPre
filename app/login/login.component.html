@@ -1,0 +1,288 @@
+<style type="text/css" style="display: none">
+    .login .navbar .navbar-brand {
+
+        background: url(./assets/img/logos/default/logo.jpg);
+/*
+        background: url({{logoOrganizacion}});        
+*/        
+        width: 200px;
+        height: 82px;
+        background-size: contain;
+    }
+</style>
+<div class="wrapper wrapper-full-page login">
+    
+
+    <nav class="navbar navbar-primary navbar-transparent navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#/dashboard" ></a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu-example">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="https://www.b2mining.com/B2M2Web/login/inicio.do"  target="_blank" style="font-size: 14px;padding-top:18px;">
+                            <i class="material-icons">dashboard</i> Ingresa a B2MINING 2.0 
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="https://www.facebook.com/ebizlatinamerica"  target="_blank" class="">
+                            <i class="fa fa-facebook-square"></i> Facebook
+                        </a>
+                    </li>
+                   <li class=" ">
+                       <a href="https://twitter.com/ebizlatin"  target="_blank" class="">
+                            <i class="fa fa-twitter"></i>Twitter
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="full-page login-page" filter-color="black" id="fondoLogin" data-image="./assets/img/logos/default/login.jpg">
+        <!--
+        <div class="full-page login-page" filter-color="black" data-image="{{fondoOrganizacion}}">
+        -->
+
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                        <form method="#" action="#">
+                            <div class="card card-login card-hidden">
+                                <div class="card-header text-center" data-background-color="blue">
+                                    <h4 class="card-title">Iniciar Sesión</h4>
+                                    <!-- 
+                                    <div class="social-line">
+                                        <a href="#btn" class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-facebook-square"></i>
+                                        </a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="#eugen" class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </div>
+                                    -->
+                                    <p class="card-title text-center">Bienvenido a {{nombreportal}}</p>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" style="background: transparent;">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Usuario</label>
+                                            <input type="text" id="txtUsuario" class="form-control" name="username" [(ngModel)]="loginModel.username"/>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" style="background: transparent;">
+                                            <i class="material-icons">lock_outline</i>
+                                        </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Clave</label>
+                                            <input type="password" id="txtClave" class="form-control" name="password" [(ngModel)]="loginModel.password"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- INICIO COMPROBANTE LA SALLE-->
+
+                                <p class="category text-center">
+                                    <b>
+                                        <a class="category text-center control-label" style="color: #000" routerLink="../consultacliente">Consulta tu Comprobante</a>
+                                    </b>
+                                </p>
+
+                                <!-- FIN COMPROBANTE LA SALLE-->
+
+                                <div class="footer text-right">
+                                    <button type="button" (click)="iniciarSesion()" [disabled]="!enabledBtnIniciarSesion" class="btn btn-info btn-simple btn-wd btn-lg" id="btnLogin">Iniciar Sesión</button>
+                                </div>
+
+                                <!--
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-4 col-xs-6">
+                                        <div class="footer text-center">
+                                            <button type="button"  class="btn btn-info btn-simple btn-wds " style="    
+                                            color:#0067a3;
+                                            box-shadow: none;
+                                            padding: 5px;
+                                            right: 30px;
+                                            font-weight: bold;
+                                            " >Regístrate</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="footer text-center">
+                                            <button type="button"  class="btn btn-info btn-simple btn-wds " style="   
+                                            color: #0067a3;
+                                            box-shadow: none;
+                                            padding: 5px;
+                                            right: 73px;
+                                            font-weight: bold;
+                                            " (click)="olvidoCuentas()">¿Olvidó su Usuario o Contraseña?</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+
+                                <!--
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="background: transparent;">
+                                    </span>
+                                    <div class="form-group label-floating">
+                                        <a href="#pablo">¿Olvidó su contraseña?</a>
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3 col-sm-3" style="padding-top:153px; font-weight:bold;font-size:15px;">
+                        <!-- <a href="" target="_blank">  -->
+                        <p style="color:#fff;">¿Qué es B2MINING 3.0?</p>
+                        <!-- </a> -->
+                        <a href="https://ebiz.pe/chat/popup_chat.html" target="_blank">   <p style="color:#fff;">Chat en Línea</p></a>
+                        <a href="https://www.ebiz.pe/contacto/" target="_blank"><p style="color:#fff;">Contáctanos</p> </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+          
+      
+        <footer class="footer">
+            <div class="container">
+                <!--
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Compañía</a>
+                        </li>
+                        <li>
+                            <a href="#">Portafolio</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                    </ul>
+                </nav>
+                -->
+                <p class="copyright text-center">
+                    &copy;
+                    {{test | date: 'yyyy'}}
+                    <a href="https://www.creative-tim.com">Ebiz</a>, Latin Todos los derechos reservados.<br />
+                    Contáctenos: 518 - 3360 | soluciones@ebizlatin.com | Chat en línea
+                </p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+
+    <div id="mdlOrganizacion" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">assignment</i>
+                                </div>
+                            </td>
+                            <td class="cell-title">
+                                <div class="card-content">
+                                    <h4 class="card-title modal-title">Escoger Organización</h4>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group label-floating">
+                                <label class="control-label">Organización<span class="star"></span></label>
+                                <select id="org_id" name="org_id" class="form-control" [(ngModel)]="usuario.org_id" >        
+                                    <option *ngFor="let option of organizaciones" value="{{option.id}}"> {{option.nombre}} </option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  (click)="AceptarOrganizacion($event)">Aceptar</button>
+                </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+    <!-- /.modal-dialog -->
+    </div>
+
+
+    
+    <div id="mdlTipoOrganizacion" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">assignment</i>
+                                </div>
+                            </td>
+                            <td class="cell-title">
+                                <div class="card-content">
+                                    <h4 class="card-title modal-title">Seleccionar el tipo de organización</h4>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group label-floating">
+                                <label class="control-label">Tipo organización<span class="star"></span></label>
+                                <select id="tipo_org" name="tipo_org" class="form-control" [(ngModel)]="usuario.tipo_empresa" >                                       
+                                    <option value="C"> Compradora </option>
+                                    <option value="P"> Proveedora </option>                                        
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  (click)="AceptarTipoOrganizacion($event)">Aceptar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    <!-- /.modal-dialog -->
+    </div>
+
+    

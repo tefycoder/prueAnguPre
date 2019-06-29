@@ -1,0 +1,694 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <form method="#" action="#">
+              <div class="card-header card-header-text" data-background-color="blue">
+                <h4 class="card-title">Detalle de Cotización</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">N° Cotización
+                      </label>
+                      <input name="numeroseguimiento" [(ngModel)]="item.numeroseguimiento" required type="text" class="form-control" [disabled]="toggleButton">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Versión
+                      </label>
+                      <input name="version" type="text" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.version">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Proveedor
+                      </label>
+                      <input name="nomorgpro" type="text" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.nomorgpro">
+                    </div>
+                  </div>
+  
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Atención a</label>
+                      <input name="nomusucom" type="text" class="form-control" [disabled]="toggleButton" [(ngModel)]="atencionA">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Preparado por</label>
+                      <input name="nomusupro" type="text" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.nomusupro">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Fecha</label>
+                      <input name="fechacreacion" type="text" class="form-control" [(ngModel)]="item.fechacreacion" datepicker disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">N° de Solicitud de Cotizacion</label>
+                      <input name="rfq" type="text" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.numerorfq">
+                    </div>
+                  </div>
+                  <!--<div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Area</label>
+                      <input name="area" type="text" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.area">
+                    </div>
+                  </div>-->
+                  <div class="col-sm-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Estado</label>
+                      <input type="text" name="estadolargo" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.estadolargo" >
+                      <!--<select name="estado" type="text" class="form-control" disabled="true" [(ngModel)]="item.estado">
+                          <option Value=""></option>
+                          <option *ngFor="let opt of listEstadoCombo" value="{{opt.valor}}"> {{opt.desc}} </option>    
+                      </select>-->
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Moneda</label>
+                        <input type="text" name="idmoneda" class="form-control" [disabled]="toggleButton" [(ngModel)]="item.idmoneda">
+                      </div>
+                    </div>
+                </div>
+                
+  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      <div class="card-content">
+                        <h4 class="card-title">Condiciones Generales</h4>
+  
+                        <div class="material-datatables table-responsive" style="display:block">
+                          <table id="dtGenerales" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+  
+                            <thead>
+  
+                              <tr>
+                                <th  class="disabled-sorting">Condición</th>
+                                <th  class="disabled-sorting">Valor</th>
+                                <th class="disabled-sorting">Unidad</th>
+                                <th class="disabled-sorting">Modificable</th>
+                                <th class="disabled-sorting">Mandatorio</th>
+                              
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <!-- end content-->
+                      </div>
+                    </div>
+                    <!--  end card  -->
+                  </div>
+                  <!-- end col-md-12 -->
+                </div>
+  
+  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      <div class="card-content">
+                        <h4 class="card-title">Detalle de Artículos</h4>
+  
+                        <div class="material-datatables table-responsive" style="display:block">
+                          <table id="dtArticulos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <colgroup span="3"></colgroup>
+                            <colgroup span="7"></colgroup>
+                            <thead>
+                              <!--<tr>
+                                <th colspan="3" scope="colgroup" border="1" class="text-center">Productos a Cotizar</th>
+                                <th colspan="7" scope="colgroup" border="1" class="text-center">Caracteristicas</th>
+                              </tr>-->
+                              <tr>
+                                <!--
+                                  <th class="disabled-sorting">
+                                      <div class="checkbox text-center">
+                                          <label>
+                                              <input type="checkbox" name="optionsCheckboxes" class="checkall">
+                                          </label>
+                                      </div>
+                                  </th>
+                                -->
+                                <th class="disabled-sorting">Pos.</th>
+                                <th class="disabled-sorting">Codigo Producto</th>
+                                <th class="disabled-sorting">Nombre Producto</th>
+                                <th class="disabled-sorting">Cantidad</th>
+                                <th class="disabled-sorting">Precio</th>
+                                <th class="disabled-sorting">Unidad</th>
+                                <th class="disabled-sorting">Fecha Entrega </th>
+  
+                              </tr>
+                            </thead>
+                           
+                          </table>
+                        </div>
+                        <!-- end content-->
+                      </div>
+                    </div>
+                    <!--  end card  -->
+                  </div>
+                  <!-- end col-md-12 -->
+                </div>
+  
+                <!--MENSAJE-->
+                <div class="col-sm-12">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Mensaje</label>
+                      <textarea name="mensaje" class="form-control" rows="2" [disabled]="toggleButton" [(ngModel)]="item.mensaje" ></textarea>
+                    </div>
+                </div>
+  
+                <!--*************ARCHIVOS ADJUNTOS**************-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      <div class="card-content">
+                        <h4 class="card-title">Documentos Adjuntos</h4>
+                        
+                        <div class="material-datatables table-responsive">
+                          <table id="dtArchivos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <thead>
+                              <tr>
+                                <!--<th class="disabled-sorting text-right">
+                                  <div class="checkbox text-right">
+                                    <label><input type="checkbox" name="optionsCheckboxes" class="checkall" ></label>
+                                  </div>
+                                </th>-->
+                                <th >Nombre</th>
+                                <th >Descripción</th>
+                                <th >Ruta</th>
+                                <th class="disabled-sorting text-center">Acciones</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- end content-->
+                    </div>
+                    <!--  end card  -->
+                  </div>
+                  <!-- end col-md-12 -->
+                </div>
+  
+              </div>
+  
+              <div class="card-footer">
+                <a class="btn btn-fill btn-default pull-right" [routerLink]="['/sm-cotizacion/comprador/buscar']">Regresar</a>
+                 <!--<button class="btn btn-fill btn-default pull-right" (click)="print($event)" *ngIf="botonImprimir.visible" >{{botonImprimir.Titulo}}</button>-->
+                 <button class="btn btn-fill btn-default pull-right" (click)="print($event)" >Imprimir</button>
+                <!--
+                <button class="btn btn-fill btn-default pull-right" [disabled]="toggleButton" (click)="clicked()">Enviar</button>
+                <button type="button" class="btn btn-fill btn-default pull-right" routerLink="/sm-requerimiento/proveedor/buscar" [disabled]="toggleButton">Guardar</button>
+                <button (click)="habilitarEdicion($event)" class="btn btn-fill btn-default pull-right" *ngIf="id>0">Habilitar Edición</button>
+                -->
+              </div>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div id="mdlArchivosAdjuntos" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Documento Adjunto</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                    <div class="form-control" data-trigger="fileinput"><i class="material-icons fileinput-exists">attach_file</i> <span class="fileinput-filename"></span></div>
+                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Seleccionar Archivo</span>
+                    <span class="fileinput-exists">Cambiar</span><input type="file" name="..." id="txtArchivo"></span>
+                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput" id="btnEliminarAA">Remover</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group label-floating">
+                  <textarea name="descripcion" placeholder="Descripción" class="form-control" rows="4" ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="grabarArchivo($event)">Grabar</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+  
+    <div id="mdlArticulo" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Detalle de Artículo</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group label-floating">
+                  <label class="control-label">Posición
+                   
+                  </label>
+                  <input name="firstname" type="text" class="form-control" value="1" disabled="true">
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="form-group label-floating">
+                  <label class="control-label">Nombre de Producto </label>
+                  <input name="firstname" type="text" class="form-control" value="Papel tapiz" disabled="true">
+                </div>
+              </div>
+  
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group label-floating">
+                  <label class="control-label">Cantidad Base</label>
+                  <input name="firstname" type="text" class="form-control" value="200" disabled="true">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group label-floating">
+                  <label class="control-label">Unidad</label>
+                  <input name="firstname" type="text" class="form-control" value="KG" disabled="true">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group label-floating">
+                  <button class="btn btn-default" data-toggle="modal" data-target="#mdlAtributos">
+                    <i class="material-icons">add</i> Atributos
+                  </button>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group label-floating">
+                  <label class="control-label">Cantidad</label>
+                  <input id="cantidad" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group label-floating">
+                  <label class="control-label">Fecha Entrega</label>
+                  <input name="fechaentrega" type="text" class="form-control datepicker" value="03/07/2017">
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                    <div class="form-control" data-trigger="fileinput">
+                      <i class="material-icons fileinput-exists">attach_file</i>
+                      <span class="fileinput-filename"></span>
+                    </div>
+                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Seleccionar Archivo</span>
+                    <span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
+                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default">Grabar</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  
+  
+    </div>
+  
+    <div id="mdlAtributos" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Atributos por Producto</h4>
+          </div>
+          <div class="modal-body">
+  
+  
+            <div class="material-datatables table-responsive">
+              <table id="dtDetalleAtributos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                <thead>
+                  <tr>
+  
+                    <th class="disabled-sorting">Nombre</th>
+                    <th class="disabled-sorting text-center">Operador</th>
+                    <th class="disabled-sorting text-center">Valor</th>
+                    <th class="disabled-sorting text-center">Unidad</th>
+                    <th class="disabled-sorting text-center">Obligatorio</th>
+  
+                  </tr>
+                </thead>
+  
+                <tbody>
+                  <tr *ngFor="let row of atributos">
+  
+                    <td>{{row.nombre}}</td>
+                    <td class="text-center">{{row.operador}}</td>
+                    <td>
+                      <input name="valor" [(ngModel)]="row.valor" type="text" class="form-control" [disabled]="toggleButton">
+                    </td>
+                    <td class="text-center">{{row.unidad}}</td>
+                    <td class="text-center">{{row.obligatorio}}</td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+  
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="grabarAtributos()" [disabled]="toggleButton">Grabar</button>
+  
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+  
+  
+  
+  </div>
+
+
+
+  <div id="mdlAtributosLista" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Atributos por Producto</h4>
+        </div>
+        <div class="modal-body">
+            <div class="material-datatables table-responsive">
+                <table id="dtDetalleAtributosxProducto" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                  <thead>
+                      <tr>
+                        <th class="disabled-sorting">Nombre</th>
+                        <th class="disabled-sorting text-center">Valor</th>
+                        <th class="disabled-sorting text-center">Unidad</th>
+                        <th class="disabled-sorting text-center">Modificable</th>
+                        <th class="disabled-sorting text-center">Obligatorio</th>
+                      </tr>
+                  </thead>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+
+  <div style="display:none">
+      <div id="print-section-material" style='font-family: Arial, Helvetica, sans-serif;color: #000;font-size: 12px;'>
+          <table width="100%" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style='font-family: Arial, Helvetica, sans-serif;color: #000;font-size: 12px;'>
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+                    <tbody>
+                      <tr>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle">
+                          Imprimir Cotización N°{{item.numeroseguimiento}} <br> <br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle">
+                          <b>IMPRESIÓN DE COTIZACIÓN</b> <br><br>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+  
+                  <table width="900" class="print-table" cellpadding="5" border='0' style="border:0px solid #999;border-collapse: collapse;"  cellspacing="0" bgcolor="#fff">
+                    <tbody>
+                      <tr style="border:1px solid #999;">
+                        <td colspan="6" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <!--<img *ngIf="this.item.idorgcompradora && this.item.idorgcompradora!=''" src="{{this.baseurl}}assets/img/logos/{{this.item.ruccomprador}}.png" height="50" style="padding:0; margin:0; border:0">-->
+                        </td>
+                        <td colspan="6" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                          Número de Cotización <br> {{item.numeroseguimiento}}
+                        </td>
+                      </tr>
+
+                      <tr style="border:1px solid #999;">
+                          <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:1px solid #999;font-size: 20px">
+                            <b style="font-size: 20px; color:#0067a3">Datos Generales:</b>
+                          </td>
+                      </tr>
+
+                      <tr style="border:1px solid #999;">
+                          <td colspan="2" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                            <b>Atención a:</b>
+                          </td>
+                          <td colspan="4" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              {{item.nomusucom}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              <b>Preparado por:</b>
+                          </td>
+                          <td colspan="4" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              {{item.nomusupro}}
+                          </td>
+                      </tr>
+                      <tr style="border:1px solid #999;">
+                          <td colspan="2" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              <b>Nro. Solicitud de Cotización:</b>
+                          </td>
+                          <td colspan="4" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              {{item.numerorfq}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              <b>Estado:</b>
+                          </td>
+                          <td colspan="4" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              {{item.estadolargo}}
+                          </td>
+                      </tr>
+                      <tr style="border:1px solid #999;">
+                          <td colspan="2" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              <b>Moneda:</b>
+                          </td>
+                          <td colspan="4" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              {{item.moneda}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              <b>Fecha:</b>
+                          </td>
+                          <td colspan="4" bgcolor="#fff" align="left" valign="middle" style="border:1px solid #999;">
+                              {{item.fechacreacion}}
+                          </td>
+                      </tr>
+                      <tr style="border:0px solid #999;">
+                          <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:0px solid #999;">
+                            &nbsp;
+                          </td>
+                      </tr>
+<!---********DETALLE DE LAS TABLAS********-->
+                      <tr style="border:1px solid #999;">
+                          <td colspan="12" bgcolor="#fff" align="middle" valign="top" style="border:1px solid #999;font-size: 20px">
+                            <b style="font-size: 20px; color:#0067a3" >Detalle</b> <br>
+                          </td>
+                      </tr>
+                      <!---********CONDICIONES GENERALES********-->
+                      <tr style="border:1px solid #999;">
+                          <td colspan="12" bgcolor="#fff" align="middle" valign="top" style="border:1px solid #999;font-size: 20px">
+                            <b style="font-size: 15px; color:#0067a3">Condiciones Generales</b>
+                          </td>
+                      </tr>
+                      <tr style="border:1px solid #999;">
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Condición</b>
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              <b>Valor</b>
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              <b>Unidad</b>
+                          </td>
+                          <td colspan="3" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              <b>Modificable</b>
+                          </td>
+                          <td colspan="3" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              <b>Mandatorio</b>
+                          </td>
+                    </tr>
+                    <tr *ngFor="let row of item.atributos" style="border:1px solid #999;">
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.nombreatributo}}
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.valorenviado}}
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.nombreunidad}}
+                        </td>
+                        <td colspan="3" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.modificable}}
+                        </td>
+                        <td colspan="3" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.mandatorio}}
+                        </td>
+                    </tr>
+
+                    <tr style="border:0px solid #999;">
+                        <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:0px solid #999;">
+                          &nbsp;
+                        </td>
+                      </tr>
+
+                    <!---********PRODUCTOS/ATRIBUTOS********-->
+                    <tr style="border:1px solid #999;">
+                        <td colspan="12" bgcolor="#fff" align="middle" valign="top" style="border:1px solid #999;font-size: 20px">
+                          <b style="font-size: 15px; color:#0067a3">Detalle de Articulos</b>
+                        </td>
+                    </tr>
+                    <tr style="border:1px solid #999;">
+                        <td colspan="1" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                          <b>Posición</b>
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Código de <br>
+                            Producto
+                            </b>
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Nombre de <br>
+                              Producto
+                              </b>
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Cantidad</b>
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Precio</b>
+                        </td>
+                        <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Unidad</b>
+                        </td>
+                        <td colspan="1" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Fecha Entrega</b>
+                        </td>
+                      </tr>
+                      <tr *ngFor="let row of prodAux" style="border:1px solid #999;">
+                          <td colspan="1" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.posicion}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.codigoproducto}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.nombreproducto}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.cantidadsolicitada}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.precio}}
+                          </td>
+                          <td colspan="2" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.unidad}}
+                          </td>
+                          <td colspan="1" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                              {{row.fechaentrega}}
+                          </td>
+                      </tr>
+                      <tr style="border:0px solid #999;">
+                          <td colspan="12" bgcolor="#fff" align="left" valign="top" style="border:0px solid #999;">
+                            &nbsp;
+                          </td>
+                      </tr>
+                     <!---********DOCUMENTOS ADJUNTOS********-->
+                     <tr style="border:1px solid #999;">
+                        <td colspan="12" bgcolor="#fff" align="middle" valign="top" style="border:1px solid #999;font-size: 20px">
+                          <b style="font-size: 15px; color:#0067a3">Documentos Adjuntos</b>
+                        </td>
+                    </tr>
+                    <tr style="border:1px solid #999;">
+                        <td colspan="4" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                          <b>Nombre</b>
+                        </td>
+                        <td colspan="4" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Descripción</b>
+                        </td>
+                        <td colspan="4" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            <b>Ruta</b>
+                        </td>
+                    </tr>
+
+                    <tr *ngFor="let row of item.docadjuntos" style="border:1px solid #999;">
+                        <td colspan="4" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.nombre}}
+                        </td>
+                        <td colspan="4" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.descripcion}}
+                        </td>
+                        <td colspan="4" bgcolor="#fff" align="center" valign="middle" style="border:1px solid #999;">
+                            {{row.ruta}}
+                        </td>
+                    </tr>
+
+
+
+
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  </div>

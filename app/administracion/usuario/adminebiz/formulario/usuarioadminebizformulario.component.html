@@ -1,0 +1,187 @@
+<div class="main-content">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header card-header-icon" data-background-color="blue">
+				<i class="material-icons">person</i>
+			</div>
+			<div class="card-content">
+				<h4 class="card-title">{{title}}</h4>
+				<form id="formulario" autocomplete="off">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Nombre de usuario<span class="star">*</span></label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9]{2,30}" maxlength="30" name="Usuario" class="form-control" type="text" disabled [(ngModel)]="usuario.Usuario">
+								<span class="material-input"></span>                     
+								<small class="text-danger">{{mesensajePosibleUsuarioRegistrado}}</small>
+								<ng-container *ngFor="let opcionUsuario of opcionesUsuario">
+									<button class="btn btn-warning btn-round btn-sm" (click)="seleccionarOpcion(opcionUsuario)" >{{opcionUsuario}}</button>
+								</ng-container>
+							</div>
+						</div>
+					</div>
+
+					<h4 class="card-title">Datos de usuario</h4>
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-4 hidden">						
+							<div class="fileinput fileinput-new text-center" data-provides="fileinput">
+								<div class="fileinput-new thumbnail">
+									<!--<img [src]="usuario.Avatar" alt="...">-->
+								</div>
+								<div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+								<div>
+									<span class="btn btn-default btn-round btn-file">
+										<span class="fileinput-new">Selecciona una Imagen</span>
+										<span class="fileinput-exists">Cambiar</span>
+										<input type="file" name="..." (change)="onChangeFile($event)"/>
+									</span>
+									<a href="#carl" class="btn btn-default btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Borrar</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Apellido paterno<span class="star">*</span></label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ ]{2,40}" [disabled]="!guardar" maxlength="40" name="ApellidoPaterno" class="form-control" type="text" (keypress)="generarUsuario()" [(ngModel)]="usuario.ApellidoPaterno">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Apellido materno</label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ ]{0,40}" [disabled]="!guardar" maxlength="40" name="ApellidoMaterno" class="form-control" type="text" (keypress)="generarUsuario()" [(ngModel)]="usuario.ApellidoMaterno">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Nombre(s)</label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ ]{0,40}" [disabled]="!guardar" maxlength="40" name="Nombre" class="form-control" type="text" (keypress)="generarUsuario()" [(ngModel)]="usuario.Nombre">
+								<span class="material-input"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Título<span class="star">*</span></label>
+								<select name="Titulo" class="form-control" data-style="select-with-transition" title="" [(ngModel)]="usuario.Titulo">
+									<option disabled="" selected=""></option>
+									<option value="Sr." ng-reflect-value="Sr.">Sr.</option>
+									<option value="Sra." ng-reflect-value="Sra.">Sra.</option>
+									<option value="Srta." ng-reflect-value="Srta.">Srta.</option>
+									<option value="Dr." ng-reflect-value="Dr.">Dr.</option>
+								</select>
+								<span class="material-input"></span>
+							</div>
+						</div>				
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Correo electrónico<span class="star">*</span></label>
+								<input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [disabled]="!guardar" maxlength="50" name="Email" class="form-control" type="email" [(ngModel)]="usuario.Email">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>                             
+						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">                                
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Teléfono</label>
+								<input pattern="[0-9-+() ]{0,15}" maxlength="15" [disabled]="!guardar" name="Telefono" class="form-control" type="text" [(ngModel)]="usuario.Telefono">
+								<span class="material-input"></span>
+							</div>                         
+						</div>				
+						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Cargo</label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ ]{0,30}" [disabled]="!guardar" maxlength="30" name="Cargo" class="form-control" type="text" [(ngModel)]="usuario.Cargo">
+								<span class="material-input"></span>
+							</div>
+						</div> 			
+						<div class="col-xs-8 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">N° Documento</label>
+								<input pattern="[0-9]{8,10}" [disabled]="!guardar" maxlength="10" name="NumeroDocumento" class="form-control" type="text" [(ngModel)]="usuario.NumeroDocumento">
+								<span class="material-input"></span>
+							</div>
+						</div> 
+						<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Tipo de documento</label>
+								<select name="TipoDocumento" [disabled]="!guardar" class="form-control" data-style="select-with-transition" title="" [(ngModel)]="usuario.TipoDocumento">
+									<option value="n" ng-reflect-value="n" selected>Ninguno</option>
+									<option value="DNI" ng-reflect-value="DNI">DNI</option>
+									<option value="Carnet" ng-reflect-value="Carnet">Carnet de extranjería</option>
+								</select>
+								<span class="material-input"></span>
+							</div>
+						</div> 
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<br>
+							<h4 class="card-title">Recibir notificaciones<span class="star">*</span></h4>							
+						</div>						
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="togglebutton">
+								<label>
+									<input name="HabilitadoEnvioEmail" type="checkbox" [disabled]="!guardar"  [(ngModel)]="HabilitadoEnvioEmail">Por Email
+								</label>
+							</div>
+						</div>
+
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="togglebutton">
+								<label>
+									<input name="HabilitadoEnvioSms" type="checkbox" [disabled]="!guardar" [(ngModel)]="HabilitadoEnvioSms">Por SMS
+								</label>
+							</div>                
+						</div>
+					</div>
+					<br>
+
+					<h4 class="card-title">Dirección (en caso de ubicarse en una sucursal)</h4>
+					<div class="row">
+
+						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hidden">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">País</label>
+								<select name="IdTablaPais" class="form-control" [disabled]="!guardar" data-style="select-with-transition" title="" [(ngModel)]="usuario.IdTablaPais">
+									<option [ngValue]="PE" ng-reflect-value="PE">Perú</option>
+									<option [ngValue]="AR" ng-reflect-value="AR">Argentina</option>
+									<option [ngValue]="BO" ng-reflect-value="BO">Bolivia</option>
+									<option [ngValue]="BR" ng-reflect-value="BR">Brasil</option>
+									<option [ngValue]="EC" ng-reflect-value="EC">Ecuador</option>
+									<option [ngValue]="PY" ng-reflect-value="PY">Paraguay</option>
+								</select>
+								<span class="material-input"></span>
+							</div>                                
+						</div>                              
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Ciudad</label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ ]{0,30}" maxlength="30" [disabled]="!guardar" name="Ciudad" class="form-control" type="text" [(ngModel)]="usuario.Ciudad">
+								<span class="material-input"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Provincia</label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ ]{0,30}" maxlength="30" [disabled]="!guardar" name="Provincia" class="form-control" type="text" [(ngModel)]="usuario.Provincia">
+								<span class="material-input"></span>
+							</div>
+						</div>    
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Dirección<span class="star">*</span></label>
+								<input pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9-. ]{3,50}" maxlength="50" [disabled]="!guardar" name="Direccion" class="form-control" type="text" [(ngModel)]="usuario.Direccion">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+								<button class="btn btn-default left" [ngClass]="{'hidden': !guardar}" type="submit" (click)="guardarUsuario($event)">GUARDAR</button>
+								<button class="btn btn-default left" [ngClass]="{'hidden': guardar}" type="button" (click)="activarEditar()">Editar</button>
+								<a class="btn btn-fill btn-default" [routerLink]="['/usuario/adminebiz/buscar']">Regresar</a>
+						</div>
+					</div>
+										
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

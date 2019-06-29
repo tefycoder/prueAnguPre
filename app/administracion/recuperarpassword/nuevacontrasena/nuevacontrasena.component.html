@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="col-sm-8 col-sm-offset-2">
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+                <div class="card wizard-card" data-color="blue" id="wizardProfile">
+                    <form action="" method="">
+                        <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                        <div class="wizard-header">
+                            <h3 class="wizard-title">
+                                Recupera los datos de tu cuenta
+                            </h3>
+                            
+                        </div>
+                        <div class="wizard-navigation">
+                            <ul>
+                                <li>
+                                    <a href="#about" data-toggle="tab">Paso 1</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="about">
+                                <div class="row">
+                                    <h4 class="info-text"> Ingresa una nueva Contraseña</h4>
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons" item-width="15px" item-height="15px">email</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Nueva Contraseña
+                                                    <small>(required)</small>
+                                                </label>
+                                                <input name="firstname" type="text" class="form-control">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">phone</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Confirmación de nueva Contraseña
+                                                    <small>(required)</small>
+                                                </label>
+                                                <input name="lastname" type="text" class="form-control">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-blue btn-wd' name='Siguiente' value='Siguiente' (click)="Cambiaropciones($event)"/>
+                                <input type='button' class='btn btn-finish btn-fill btn-blue btn-wd' name='Enviar' value='Enviar' />
+                            </div>
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='Anterior' value='Anterior' />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- wizard container -->
+        </div>
+    </div>
+</div>

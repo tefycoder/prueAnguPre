@@ -1,0 +1,111 @@
+/********************************************/
+/********************************************/
+/**************** BaluArt.net ***************/
+/******* Arte y Cultura - Blog Peruano*******/
+/********************************************/
+/********************************************/
+
+#menunav {
+
+font-family: small, "Lucida Sans", Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding:0;
+	width:90px;
+	}
+#menunav li {
+   list-style-type: none;
+	margin: 0;
+/*  background-repeat: repeat-x; */
+	height:30px;
+	border-bottom:#666666 1px solid;
+	background-color: #000000;
+	color:#FF9900;
+
+}
+#menunav li .on{
+display:block;
+color:#FF9900;
+padding: 4px 2px 4px 2px;
+
+
+}
+
+#menunav ul {
+
+	margin: 0;
+	padding: 0;
+	z-index: 10000;
+}
+#menunav ul li {
+	background-color:#161616;
+	color:#666666;
+	width:90px;
+}
+#menunav a {
+	display: block;
+	text-decoration: none;
+	background-color: transparent;
+	padding: 4px 2px 4px 2px;
+	color: #ffffff;
+	/*line-height:1;*/
+}
+/*controla la botonera */
+#menunav a:hover, #menunav a:active, #menunav a:focus,
+#menunav .menuon, #menunav .menuon:hover, 
+#menunav .menuon:active {
+	color: #FF9933;
+	background-color: #000000;
+	background-repeat: repeat-x;
+}
+#menunav .menumark, #menunav .menumark:hover {
+
+}
+/*Controlan los links y la imagen de flecha */
+/*the normal trigger link */
+#menunav .menutrg, #menunav .menutrg:hover, #menunav .menutrg:active {
+	background-repeat:	no-repeat;
+	background-position: right center;
+}
+#menunav .menutrg:hover {
+	background-position: right center;
+	background-repeat: repeat-x;
+}
+/*controla el desplazamiento y alcance de los submenus */
+#menunav .menuhide {
+	left: -9000px;
+	border: 0;
+}
+#menunav .menushow {
+	left: auto;
+	z-index: 20000;
+}
+/*modifica el menu madre */
+#sidebar {
+
+}
+
+#menunav .submenu{
+	margin:0px;
+	border-bottom-color:#161616;
+	color:#333333;
+	padding-left:10px;
+	vertical-align:middle;
+	height: auto;
+	width: 90px;
+	margin-left: 20px;
+
+}
+
+#menunav .submenu a{
+color:#666666;
+background-color:#161616;
+text-decoration:none;
+border-bottom-color:#161616;
+list-style-type:lower-latin;
+}
+
+
+#menunav .submenu a:hover{
+color:#FF9900;
+text-decoration:none;
+background-color:#161616;}

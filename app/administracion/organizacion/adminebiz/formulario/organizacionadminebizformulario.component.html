@@ -1,0 +1,361 @@
+<div class="main-content" id="crear-organizacion">
+  	<div class="container-fluid">
+    	<div class="card">
+			<div class="card-header card-header-icon" data-background-color="blue">
+				<i class="material-icons">domain</i>
+			</div>
+			<div class="card-content">
+				<h4 class="card-title">{{title}}</h4>
+				<form id="formulario" autocomplete="off">
+					                
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+							<br>
+							<div class="togglebutton">
+								<label>
+									<input name="TipoempresaC" type="checkbox" value="C" [disabled]="!guardar" ng-reflect-value="C" [(ngModel)]="TipoempresaC">Comprador
+								</label>
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+							<br>
+							<div class="togglebutton">
+								<label>
+									<input name="TipoempresaP" type="checkbox" value="P" [disabled]="!guardar" ng-reflect-value="P" [(ngModel)]="TipoempresaP" checked="">Proveedor
+								</label>
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+							<br>
+							<div class="togglebutton">
+								<label>
+									<input name="TipoempresaF" type="checkbox" value="F" [disabled]="!guardar" ng-reflect-value="F" [(ngModel)]="TipoempresaF" checked="">Finaciera
+								</label>
+							</div>
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Seleccione grupo empresarial</label>
+								<select name="IdGrupo" class="form-control" [disabled]="!guardar" data-style="select-with-transition" title="" [(ngModel)]="organizacion.IdGrupo">
+									<option [ngValue]="" selected>Ninguno</option>
+									<option *ngFor="let grupoEmpresarial of gruposEmpresariales" [ngValue]="grupoEmpresarial.IdGrupo">{{grupoEmpresarial.Descripcion | uppercase}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 text-center">
+							<button class="btn btn-default btn-just-icon btn-round" [disabled]="!guardar" data-toggle="modal" data-target="#agregar-grupoempresarial">
+								<i class="material-icons">add</i>
+							</button>
+						</div>
+					</div>
+					<br/>
+					<h4 class="card-title">Datos de la organización</h4>
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-4 text-center hidden"><br>
+							<div class="fileinput fileinput-new text-center" data-provides="fileinput">
+								<div class="fileinput-new thumbnail">
+									<!--<img [src]="organizacion.Logo" alt="...">-->
+								</div>
+								<div class="fileinput-preview fileinput-exists thumbnail"></div>
+								<div>
+									<span class="btn btn-default btn-round btn-file">
+										<span class="fileinput-new">Seleccionar logo</span>
+										<span class="fileinput-exists">Cambiar</span>
+										<input name="File" type="file" name="..." [disabled]="!guardar" (change)="onChangeFile($event)" />
+									</span>
+									<a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+								</div>
+							</div>
+						</div> 
+						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating" >
+								<label class="control-label">RUC<span class="star">*</span></label>
+								<input name="Ruc" type="text" pattern="[0-9]{11}" maxlength="11" [disabled]="!guardar" class="form-control"  (change)="verificarRUC()" [(ngModel)]="organizacion.Ruc">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+							<small class="text-danger">{{mesensajeOrganizacionRegistrada}}</small>
+						</div>   
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">								
+							<div class="form-group label-floating" >
+								<label class="control-label">Razon Social</label>
+								<input name="Nombre" type="text" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9-. ]{0,200}" maxlength="200" [disabled]="!guardar" class="form-control" [(ngModel)]="organizacion.Nombre">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>                 
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+							<div class="form-group label-floating">
+								<label class="control-label">Página web</label>
+								<input name="Url" type="text" pattern="[a-z0-9-.]{0,150}" maxlength="150" [disabled]="!guardar" class="form-control" [(ngModel)]="organizacion.Url">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+							<div class="form-group label-floating">
+								<label class="control-label">Dirección<span class="star">*</span></label>
+								<input name="Direccion" type="text" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9- .]{0,250}" maxlength="250" class="form-control" [disabled]="!guardar" [(ngModel)]="organizacion.Direccion">
+								<span class="material-icons form-control-feedback">clear</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+							<div class="form-group label-floating">
+								<label class="control-label">Código postal</label>
+								<input name="CodigoPostal" type="text" pattern="[0-9]{0,6}" maxlength="6" class="form-control" [disabled]="!guardar" [(ngModel)]="organizacion.CodigoPostal">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Seleccione país<span class="star">*</span></label>
+								<select name="IsoPais" class="form-control" [disabled]="!guardar" data-style="select-with-transition" title="" [(ngModel)]="organizacion.IsoPais">
+									<option value="PE" ng-reflect-value="PE">Perú</option>
+									<option value="AR" ng-reflect-value="AR">Argentina</option>
+									<option value="BO" ng-reflect-value="BO">Bolivia</option>
+									<option value="BR" ng-reflect-value="BR">Brasil</option>
+									<option value="EC" ng-reflect-value="EC">Ecuador</option>
+									<option value="PY" ng-reflect-value="PY">Paraguay</option>
+								</select>
+								<span class="material-input"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating">
+								<label class="control-label">Ciudad</label>
+								<input name="Ciudad" type="text" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9- .]{0,50}" maxlength="50" class="form-control" [disabled]="!guardar" [(ngModel)]="organizacion.Ciudad">
+							</div>
+						</div>                                
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">                                
+							<div class="form-group label-floating">
+								<label class="control-label">Provincia</label>
+								<input name="Provincia" type="text" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9- .]{0,50}" maxlength="50" [disabled]="!guardar" class="form-control" [(ngModel)]="organizacion.Provincia">
+							</div>
+						</div>                                
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating">
+								<label class="control-label">Teléfono fijo</label>
+								<input name="Telefono" type="text" pattern="[0-9-+() ]{0,15}" maxlength="15" [disabled]="!guardar" class="form-control" [(ngModel)]="organizacion.Telefono">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Crear calendarios<span class="star">*</span></label>
+								<select name="CrearCalendarios" [disabled]="!guardar" class="form-control" data-style="select-with-transition" title="" [(ngModel)]="organizacion.CrearCalendarios">
+									<option value="0" ng-reflect-value="0">No</option>
+									<option value="1" ng-reflect-value="1">Si</option>
+								</select>
+								<span class="material-input"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+							<button class="btn btn-default left" [ngClass]="{'hidden': !guardar}" type="submit" (click)="guardarOrganizacion($event)">GUARDAR</button>
+							<button class="btn btn-default left" [ngClass]="{'hidden': guardar}" type="button" (click)="activarEditar()">Editar</button>
+							<a class="btn btn-fill btn-default" [routerLink]="['/organizacion/adminebiz/buscar']">Regresar</a>
+						</div>
+					</div>	
+				</form>		
+
+				
+				<div class="card" [ngClass]="{'hidden':!organizacion.IdOrganizacion != ''}">
+					<div class="card-header card-header-icon" data-background-color="blue">
+						<i class="material-icons">persons</i>
+					</div>
+					<div class="card-content">
+						<h4 class="card-title">Usuarios</h4>
+
+						<div class="col-xs-12 text-right">													
+							<button data-toggle="modal" class="btn btn-fill btn-default" data-target="#buscar-usuario">
+								<i class="material-icons">add</i>
+							</button>
+						</div>
+						<div class="col-xs-12">
+							<table class="table table-responsive">
+								<thead>
+									<tr>
+										<td>Usuario</td>
+										<td>Apellidos y nombres</td>
+										<td>Rol</td>
+										<td>Acciones</td>
+									</tr>
+								</thead>
+								<tbody>									
+									<ng-container *ngFor="let usuarioXOrganizacion of usuariosXOrganizacion">
+										<tr>
+											<td>{{usuarioXOrganizacion.Usuario}}</td>
+											<td>{{usuarioXOrganizacion.NombreCompleto}}</td>
+											<td style="margin:0px; padding:0px;">
+												<select [id]="usuarioXOrganizacion.IdUsuarioXOrganizacion" [ngModel]="usuarioXOrganizacion.IdRol" class="form-control" data-style="select-with-transition" (change)="cambiarRolUsuario(usuarioXOrganizacion.IdUsuarioXOrganizacion)">
+													<option *ngFor="let rol of roles" [value]="rol.IdRol">{{rol.Descripcion}}</option>
+												</select>
+											</td>
+											<td class="td-actions text-center">
+												<button rel="tooltip" type="button" class="btn btn-default btn-round"  [routerLink]="['/usuario/adminebiz/formulario', usuarioXOrganizacion.IdUsuario]">
+													<i class="material-icons">visibility</i>
+													<div class="ripple-container"></div>
+												</button>
+												<button rel="tooltip" type="button" class="btn btn-danger btn-round" (click)="confimarInhabilitarUsuario(usuarioXOrganizacion)">
+													<i class="material-icons">clear</i>
+													<div class="ripple-container"></div>
+												</button>
+											</td>
+										</tr>
+									</ng-container> 
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Agregar grupo empresarial -->
+<div class="modal fade" id="agregar-grupoempresarial" tabindex="-1" role="dialog" aria-labelledby="labelRegistrarGrupoEmpresarial">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="labelRegistrarGrupoEmpresarial">Registrar grupo empresarial</h4>
+			</div>
+			<form id="formulario-grupoempresarial">
+				<div class="modal-body">
+					<div class="col-sm-8">
+						<div class="form-group label-floating">
+							<label class="control-label">Grupo empresarial<span class="star">*</span></label>
+							<input name="Descripcion" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9-. ]{4,}" (keypress)="generarCodigo()" required [(ngModel)]="grupoEmpresarial.Descripcion" type="text" class="form-control">
+							<span class="material-icons form-control-feedback">clear</span>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group label-floating">
+							<label class="control-label">Código</label>
+							<input name="Codigo" [(ngModel)]="grupoEmpresarial.Codigo" disabled required type="text" class="form-control ng-valid ng-dirty ng-touched">
+						</div>                                 
+					</div>
+					<div class="col-xs-12 col-sm-12" [ngClass]="{'hidden':opcionesCodigo.length==0}">
+						<b class="card-title">Códigos disponibles:</b>
+						<div>
+							<ng-container *ngFor="let opcioneCodigo of opcionesCodigo">
+								<button class="btn btn-warning btn-round btn-sm" (click)="seleccionarOpcion(opcioneCodigo)" >{{opcioneCodigo}}</button>
+							</ng-container>  
+						</div>                                    
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-default" (click)="guardarGrupoEmpresarial()">Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- MODAL -->
+<div id="buscar-usuario" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="card-title modal-title">Buscar usuario</h4>
+			</div>
+			<div class="modal-body">
+				<form #u="ngForm" (ngSubmit)="buscarUsuario(u)" novalidate>                           
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="form-group label-floating">
+								<label class="control-label">Usuario</label>
+								<input name="Usuario" ngModel #Usuario="ngModel" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-5">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre(s)</label>
+								<input name="Nombre" ngModel #Nombre="ngModel" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-5">
+							<div class="form-group label-floating">
+								<label class="control-label">Apellido Paterno</label>
+								<input name="ApellidoPaterno" ngModel #ApellidoPaterno="ngModel" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="col-xs-12 text-center">
+							<div class="form-group">
+								<button class="btn btn-default">Buscar</button>
+								<button type="button" class="btn btn-default" (click)="reset(u)">Limpiar</button>
+							</div>
+						</div>
+					</div>     
+				</form>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="table-responsive">							
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="text-center cursor-pointer" (click)="ordenarResultados('Usuario')">Nombre de usuario
+											<span [ngClass]="{'hidden':ordenar != 'Usuario'}">
+												<i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+												<i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+											</span>
+										</th>
+										<th class="text-center cursor-pointer" (click)="ordenarResultados('ApellidoPaterno')">Apellidos y nombres
+											<span [ngClass]="{'hidden':ordenar != 'ApellidoPaterno'}">
+												<i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+												<i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+											</span>
+										</th>
+										<th class="text-center">Acciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let usuario of usuarios">
+										<td class="text-center">{{usuario.Usuario}}</td>
+										<td>{{ usuario.ApellidoPaterno | uppercase }} {{ usuario.ApellidoMaterno | uppercase }}, {{ usuario.Nombre }}</td>
+										<td class="td-actions text-center">
+											<button rel="tooltip" type="button" class="btn btn-success btn-round" (click)="seleccionUsuario(usuario)">
+												<i class="material-icons">add</i>
+												<div class="ripple-container"></div>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" (click)="SeleccionarCliente($event)" [disabled]="btnSeleccionar">Seleccionar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+			-->
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+
+<!-- INHABILITAR USUARIO -->
+<div id="confirmar-inhabilitar" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="gridSystemModalLabel">Aviso</h4>
+		  </div>
+		  <div class="modal-body">
+			<div class="row">
+			  <div class="col-md-12">¿Desea eliminar al usuario <b>{{usuarioXOrganizacionTemporal.NombreCompleto}}</b>?</div>
+			</div>            
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar</button>
+			<button type="button" class="btn btn-default" (click)="inhabilitarUsuario()">Aceptar</button>
+		  </div>
+		</div>
+	</div>
+</div>

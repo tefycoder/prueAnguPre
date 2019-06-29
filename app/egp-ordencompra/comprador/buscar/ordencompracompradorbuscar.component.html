@@ -1,0 +1,121 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <form method="#" action="#">
+                        <div class="card-header card-header-text" data-background-color="blue">
+                            <h4 class="card-title">Buscar OC/OS</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">N° OC/OS
+                                        </label>
+                                        <input [(ngModel)]="nroordencompra2" name="nroordencompra2" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Estado</label>
+                                        <select name="country" class="form-control">
+                                            <option disabled="" selected=""></option>
+                                            <option *ngFor="let optEstado of listEstadoCombo" value="{{optEstado.valor}}"> {{optEstado.desc}} </option>           
+           
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Fecha Creación Del</label>
+                                        <input type="text" class="form-control" datepicker />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">al</label>
+                                        <input type="text" class="form-control" datepicker />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="label-on-left">Tipo OC/OS</label>
+                                        <div class="togglebutton">
+                                            <label>
+                                                <input type="checkbox" checked> Material
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" checked> Servicio
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <button class="btn btn-default" (click)="clicked($event)">Buscar</button>
+                                        <button class="btn btn-default">Limpiar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <nav class="navbar navbar-info" role="navigation">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+
+                                        <span class="navbar-brand">Resultados</span>
+                                    </div>
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+
+
+                                            <li><a [routerLink]="['/egp-ordencompra/comprador/formulario', 0]">Crear</a></li>
+                                            <li><a href="javascript:void()">Copiar</a></li>
+                                            <li><a href="javascript:void()">Modificar</a></li>
+                                            <li><a href="javascript:void()">Activar</a></li>
+                                            <li><a href="javascript:void()">Anular</a></li>
+                                            <li><a [routerLink]="['/egp-ordencompra/comprador/formulario', 45]">Detalles</a></li>
+                                            
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="material-datatables table-responsive">
+                                <table id="dtResultados" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="disabled-sorting text-right">
+                                                <div class="checkbox text-right">
+                                                    <label><input type="checkbox" name="optionsCheckboxes" class="checkall" ></label>
+                                                </div>
+                                            </th>
+                                            <th>Nro. O.C.</th>
+                                            <th>Estado</th>
+                                            <th>Tipo de Orden</th>
+                                            <th>Comprador</th>
+                                            <th>Proveedor</th>
+                                            <th>Atencion A</th>
+                                            <th>Version</th>
+                                            <th>Total</th>
+                                            <th>Fecha Registro</th>
+                                            <th class="disabled-sorting text-right">Acciones</th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

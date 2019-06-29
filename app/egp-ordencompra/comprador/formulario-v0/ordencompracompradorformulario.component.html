@@ -1,0 +1,928 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <form method="#" action="#">
+            <div class="card-header card-header-text" data-background-color="blue">
+              <h4 class="card-title">OC/OS</h4>
+            </div>
+            <div class="card-content">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="proveedor" [(ngModel)]="item.proveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">OC/OS
+                      <span class="star"></span>
+                    </label>
+                    <input name="nroordencompra" [(ngModel)]="item.nroordencompra" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Fecha de Creación
+                      <span class="star"></span>
+                    </label>
+                    <input name="fecharegistro" [(ngModel)]="item.fecharegistro" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">RUC Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="rucproveedor" [(ngModel)]="item.rucproveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Código Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="codigoproveedor" [(ngModel)]="item.codigoproveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Flag Cambio OC
+                      <span class="star"></span>
+                    </label>
+                    <input name="flagcambio" [(ngModel)]="item.flagcambio" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Versión OC
+                      <span class="star"></span>
+                    </label>
+                    <input name="version" [(ngModel)]="item.version" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Moneda</label>
+                    <input name="moneda" [(ngModel)]="item.moneda" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Atencion a
+                      <span class="star"></span>
+                    </label>
+                    <input name="atenciona" [(ngModel)]="item.atenciona" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Preparada por 
+                      <span class="star"></span>
+                    </label>
+                    <input name="preparadapor" [(ngModel)]="item.preparadapor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Prioridad
+                      <span class="star"></span>
+                    </label>
+                    <input name="prioridad" [(ngModel)]="item.prioridad" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Nro. Oferta Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="nroofertaproveedor" [(ngModel)]="item.nroofertaproveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Requerimiento
+                      <span class="star"></span>
+                    </label>
+                    <input name="peticionofertarfq" [(ngModel)]="item.peticionofertarfq" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">OC Directa
+                      <span class="star"></span>
+                    </label>
+
+                    <input name="ocdirecta" [(ngModel)]="item.ocdirecta" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Estado Web</label>
+                    <input name="estadoweb" [(ngModel)]="item.estadoweb" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Facturar a
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.facturara" name="facturara" class="form-control" rows="2" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Enviar Factura a
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.enviarfacturaa" name="enviarfacturaa" class="form-control" rows="2" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Lugar de Entrega
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.lugardeentrega" name="lugardeentrega" class="form-control" rows="2" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Terminos de Entrega
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.terminosdeentrega" name="terminosdeentrega" class="form-control" rows="2" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Consignar a
+                      <span class="star"></span>
+                    </label>
+                    <input [(ngModel)]="item.consignara" name="consignara" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Nro. Asignación Presupuestal
+                      <span class="star"></span>
+                    </label>
+                    <input [(ngModel)]="item.nroasignacionpresupuestal" name="nroasignacionpresupuestal" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Datos de Importación </h4>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Medio de Transporte<span class="star"></span></label>
+                            <input name="mediotransporte" [(ngModel)]="item.mediotransporte" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Fecha de Envio<span class="star"></span></label>
+                            <input name="fechaenvio" [(ngModel)]="item.fechaenvio" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Pais de Embarque<span class="star"></span></label>
+                            <input name="paisembarque" [(ngModel)]="item.paisembarque" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Región de Embarque<span class="star"></span></label>
+                            <input name="regionembarque" [(ngModel)]="item.regionembarque" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Puerto de Desembarque<span class="star"></span></label>
+                            <input name="puertodesembarque" [(ngModel)]="item.puertodesembarque" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Fecha de Entrega (dd/mm/aaaa)<span class="star"></span></label>
+                            <input name="fechaentrega" [(ngModel)]="item.fechaentrega" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Embarcador<span class="star"></span></label>
+                            <input name="embarcador" [(ngModel)]="item.embarcador" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Embarques Parciales<span class="star"></span></label>
+                            <input name="embarquesparciales" [(ngModel)]="item.embarquesparciales" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Condiciones de Embarque<span class="star"></span></label>
+                            <input name="condicionesembarque" [(ngModel)]="item.condicionesembarque" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Aduanas<span class="star"></span></label>
+                            <input name="aduanas" [(ngModel)]="item.aduanas" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Poliza de Seguro<span class="star"></span></label>
+                            <input name="polizaseguro" [(ngModel)]="item.polizaseguro" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                    <!-- end content-->
+                  </div>
+                  <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Condiciones Generales </h4>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Formato<span class="star"></span></label>
+                            <input name="formato" [(ngModel)]="item.formato" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Empresa Proveedora<span class="star"></span></label>
+                            <input name="empresaproveedora" [(ngModel)]="item.empresaproveedora" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+
+                      </div>
+
+
+
+                    </div>
+                    <!-- end content-->
+                  </div>
+                  <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Detalle de Items</h4>
+
+                      <div class="material-datatables table-responsive" style="display:block">
+                        <table id="dtArticulos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+
+                          <thead>
+                            <tr>
+                              <th>Posición</th>
+                              <th>Mi Código de Prod.</th>
+                              <th>Nombre Producto</th>
+                              <th class="disabled-sorting">Cantidad</th>
+                              <th class="disabled-sorting">Precio Unitario</th>
+                              <th class="disabled-sorting">Precio Total</th>
+                              <th class="disabled-sorting">Fecha de Entrega</th>
+                            </tr>
+                          </thead>
+
+
+                        </table>
+                      </div>
+                      <!-- end content-->
+                    </div>
+                  </div>
+                  <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Para cualquier consulta sobre sus documentos de pago llamar a
+                      <span class="star"></span>
+                    </label>
+                    <input [(ngModel)]="item.consultasdocumentos" name="consultasdocumentos" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-sm-8">
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Comentarios<span class="star"></span></label>
+                        <textarea [(ngModel)]="item.comentarios" name="comentarios" class="form-control" rows="5" [disabled]="toggleButton"> </textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Forma de Pago<span class="star"></span></label>
+                        <input [(ngModel)]="item.formapago" name="formapago" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Autorizado por<span class="star"></span></label>
+                        <textarea [(ngModel)]="item.autorizadopor" name="autorizadopor" class="form-control" rows="4" [disabled]="toggleButton"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Fecha de Autorización<span class="star"></span></label>
+                        <input [(ngModel)]="item.fechaautorizacion" name="fechaautorizacion" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="col-sm-4">
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Subtotal(PEN)<span class="star"></span></label>
+                        <input [(ngModel)]="item.subtotal" name="subtotal" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Descuentos(0.0000%)<span class="star"></span></label>
+                        <input [(ngModel)]="item.descuentos" name="descuentos" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Valor Venta(PEN)<span class="star"></span></label>
+                        <input [(ngModel)]="item.valorventa" name="valorventa" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Otros Costos(PEN)<span class="star"></span></label>
+                        <input [(ngModel)]="item.otroscostos" name="otroscostos" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Impuestos(18.0000%)<span class="star"></span></label>
+                        <input [(ngModel)]="item.impuestos" name="impuestos" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Valor Total(PEN)<span class="star"></span></label>
+                        <input [(ngModel)]="item.valortotal" name="valortotal" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Comentario del Proveedor acerca del cambio de estado 
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.comentarioproveedor" name="comentarioproveedor" class="form-control" row="4" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+
+            <div class="card-footer">
+              <!--<button type="button" class="btn btn-fill btn-default pull-right" (click)="grabar($event)" [disabled]="toggleButton">Grabar</button>
+              <button (click)="toggleButton=false" class="btn btn-fill btn-default pull-right" *ngIf="id>0">Habilitar Edición</button>-->
+              <a routerLink="/egp-ordencompra/comprador/buscar" class="btn btn-fill btn-default pull-right">Salir</a>
+              <button class="btn btn-fill btn-default pull-right" (click)="print($event)">Imprimir</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display:none"> <!---->
+<div id="print-section">
+  <table width="100%" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+    <tbody>
+      <tr>
+        <td align="center">
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="450" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999"><img src="../../../../assets/img/faces/centenario.png" width="358" height="141" style="padding:0; margin:0; border:0"></td>
+                <td width="450" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                  <table width="100%" cellpadding="10" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td align="left" width="25%">Ruc:<br> Teléfono:
+                          <br> Dirección:
+                        </td>
+                        <td align="left">PE 2090055237<br> 3150900
+                          <br> Av. Argentina 4793</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="449" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999" align="left"
+                  valign="top">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td style="font-size:16px; padding:5px;"><strong>Proveedor:</strong><br>
+                          <strong>INVERSIONES CYS S.A.</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td width="50%" height="30" style="border-right:1px solid #999; padding:5px"><strong>RUC Proveedor:</strong><br> PE20215528791
+                        </td>
+                        <td width="50%" height="30" align="left" valign="middle" style="padding:5px"><strong>Código Proveedor:</strong><strong></strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td width="448" align="left" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td style="font-size:16px; padding:5px"><strong>OC/OS:</strong> <strong>4510648635</strong><br>
+                          <strong>Fecha: noviembre 28, 2014</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td width="50%" height="30" style="border-right:1px solid #999; padding:5px"><strong>O/C/ Modificada:</strong></td>
+                        <td width="25%" height="30" align="left" valign="middle" style="border-right:1px solid #999; padding:5px"><strong>Versión OC:</strong><br>1
+                        </td>
+                        <td width="25%" height="30" align="left" valign="middle" style="padding:5px"><strong>Moneda:</strong><br>1
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Atención a:</strong><br> Sr. Reyler Villalobos</td>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px"><strong>Preparada por:</strong><br> Srta. Katia Leon,<br> Telef: 3145000<br> 3145000,
+                  <br> email: kleon@alicorp.com.pe</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="449" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999" align="left"
+                  valign="top">
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td width="50%" height="60" style="border-right:1px solid #999; padding:5px"><strong>Nro Oferta Proveedor:</strong></td>
+                        <td width="50%" height="60" align="left" valign="middle" style="padding:5px"><strong>Nro Cotización:</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td width="448" align="left" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999">
+                  <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td width="75%" height="60" style="border-right:1px solid #999; padding:5px"><strong>Requerimiento:</strong></td>
+                        <td width="25%" height="60" align="left" valign="middle" style="padding:5px"><strong>Estado Web:</strong><strong></strong> Aceptada
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Facturar a:</strong><br> ALICORP RUC: PE2090055237 Av. Argentina Nro.<br> 4793 Carmen de La Legua
+                  Reynoso, callao TEL: (51 1) 3150900 FAX: (51 1) 3150858 / 3150659</td>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px"><strong>Enviar Factura a:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999; padding:5px"><strong>Lugar de Entrega:</strong> CENTRO: CD Centra &amp; Copsa<br> CD Central &amp; Copsa Av. Argentina
+                  # 5027 LIMA</td>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px"><strong>Termino de Entrega:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999; padding:5px"><strong>Consignar a:</strong><br> -
+                </td>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px"><strong>Nro Asignación Presupuestal:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px"><strong>DATOS DE IMPORTACIÓN:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="449" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999" align="left"
+                  valign="top">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td height="20" style="border-right:1px solid #999; padding:5px"><strong>Medio de Transporte:</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td width="448" align="left" valign="top" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:1px solid #999">
+                  <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td width="50%" height="20" style="border-right:1px solid #999; padding:5px"><strong>Fecha de Envió:</strong></td>
+                        <td width="50%" height="20" align="left" valign="middle" style="padding:5px"><strong>País de Embarque:</strong><strong></strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="25%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Región de Embarque:</strong></td>
+                <td width="50%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px"><strong>Puerto de Desembarque:</strong></td>
+                <td width="25%" height="20" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Fecha Entrega:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="449" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999" align="left"
+                  valign="top">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td height="20" style="border-right:1px solid #999; padding:5px"><strong>Embarcador:</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td width="448" align="left" valign="top" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:1px solid #999">
+                  <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                    <tbody>
+                      <tr>
+                        <td width="50%" height="20" style="border-right:1px solid #999; padding:5px"><strong>Embarque Parciales:</strong></td>
+                        <td width="50%" height="20" align="left" valign="middle" style="padding:5px"><strong>Condiciones de Embarque:</strong><strong></strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px"><strong>DATOS ADICIONALES:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px"><strong>CONDICIONES GENERALES:</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="100%" align="left" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; border-bottom:1px solid #999; padding:5px; margin-bottom:20px"><strong>FORMATO:</strong> ALI-R-CO-00-002<br>
+                  <strong>EMPRESA PROVEEDORA:</strong> INVERSIONES CYS SA AV. LA MOLINA 473 ATE 4373344 4373368</td>
+              </tr>
+            </tbody>
+          </table>
+          &nbsp;
+
+       
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #999">
+            <tbody>
+               <tr>
+                <td width="7%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999;  border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Post</strong></td>
+                <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-bottom:1px solid #999; border-top:0; padding:5px"><strong>Descripción del Productos</strong></td>
+                <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999;  border-bottom:1px solid #999; border-top:0; padding:5px"><strong>Cant</strong></td>
+                <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999;  border-bottom:1px solid #999; border-top:0; padding:5px"><strong>Unid</strong></td>
+                <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999;  border-bottom:1px solid #999; border-top:0; padding:5px"><strong>Precio<br>Unitario</strong></td>
+                <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999;  border-bottom:1px solid #999; border-top:0; padding:5px"><strong>Total</strong></td>
+                <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999;  border-bottom:1px solid #999; border-top:0; padding:5px"><strong>Fecha<br>Entrega</strong></td>
+              </tr>
+              <tr>
+                <td width="7%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>00010</strong></td>
+                <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999;  border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">PISO METROPOLIS GRIS MEDIO MATE 60X60<br>
+                  <br>
+                  <strong>Código Producto:</strong> 000010 - 456648635<br>
+                  <strong>Technical specification:</strong> -<br>
+                  <strong>Reparto1:</strong> Fecha: 12/31/2014 Cantidad: 4,320 <br>
+                  <br></td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">4.3200</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">m2</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">59.4189</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">256.6900</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">31/12/2014</td>
+              </tr>
+              <tr>
+                <td width="7%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>00020</strong></td>
+                <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">PISO GEMS PLATA MAT60X60<br>
+                  <br>
+                  <strong>Código Producto:</strong> 000020 - 456648635<br>
+                  <strong>Technical specification:</strong> -<br>
+                  <strong>Reparto1:</strong> Fecha: 12/31/2014 Cantidad: 4,320 <br>
+                  <br></td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">4.3200</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">m2</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">60.,9390</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">263.2600</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">31/12/2014</td>
+              </tr>
+              <tr>
+                <td width="7%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>00030</strong></td>
+                <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">WHITE PLAIN MATTE BO 29.8X60.1<br>
+                  <br>
+                  <strong>Código Producto:</strong> 000030 - 456648635<br>
+                  <strong>Technical specification:</strong> -<br>
+                  <strong>Reparto1:</strong> Fecha: 12/31/2014 Cantidad: 4,320 <br>
+                  <br></td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">193.45000</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">m2</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">33.8100</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">6,542.2400</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">31/12/2014</td>
+              </tr>
+              <tr>
+                <td width="7%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>00040</strong></td>
+                <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">PISO METROPOLIS GRIS CLARO MATE 60X60<br>
+                  <br>
+                  <strong>Código Producto:</strong> 000020 - 456648635<br>
+                  <strong>Technical specification:</strong> -<br>
+                  <strong>Reparto1:</strong> Fecha: 12/31/2014 Cantidad: 4,320 <br>
+                  <br></td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">4.3200</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">m2</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">60,9390</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">263.2600</td>
+                <td width="10%" height="20" align="center" valign="top" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">31/12/2014</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="100%" align="left" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; border-bottom:1px solid #999; padding:5px; margin-bottom:20px"><strong>Para cualquier consulta sobre sus documentos de pago llamar a: </strong>0-800-12543 (desde teléfonos
+                  fijos) o al 595-0444 (desde celular o cabinas)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px">
+                  <p><strong>Comentarios:</strong></p>
+                  <p>&nbsp;</p>
+                  <p><strong>Forma de pago:</strong><br> Crédito 30 días</p>
+                  <p>&nbsp;</p>
+                  <p><strong>Fecha de Autorización:</strong></p>
+                  <p>&nbsp;</p>
+                  <p><strong>Autorizado por:</strong></p>
+                </td>
+                <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td width="50%" align="left" valign="top">
+                          <p>SUB TOTAL (PEN)</p>
+                          <p>&nbsp;</p>
+                          <p>DESCUENTO (0.0000%)</p>
+                          <p>&nbsp;</p>
+                          <p>VALOR DE VENTA (PEN)</p>
+                          <p>&nbsp;</p>
+                          <p>OTROS COSTOS (PEN)</p>
+                          <p>&nbsp;</p>
+                          <p>IMPUESTOS<br> (18.0000%)
+                          </p>
+                          <p>&nbsp;</p>
+                          <p><strong>VALOR TOTAL (PEN)</strong></p>
+                        </td>
+                        <td align="right" valign="top">
+                          <p>24,859.6700</p>
+                          <p>&nbsp;</p>
+                          <p>0.0000</p>
+                          <p>&nbsp;</p>
+                          <p>24,859.6700</p>
+                          <p>&nbsp;</p>
+                          <p>0.0000</p>
+                          <p>&nbsp;</p>
+                          <p>4,474.7400<br>
+                          </p>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          <p><strong>29,334.4100 </strong></p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+            <tbody>
+              <tr>
+                <td width="100%" align="left" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; border-bottom:1px solid #999; padding:5px; margin-bottom:20px">
+                  <p><strong>Narrativa:</strong></p>
+                  <p>Texto Cabecera:</p>
+                  <p>ENTREGAR LA MERCADERIA OCN GUIA EN COPSA: JR. JORGE CHAVEZ 902 CALLAO.</p>
+                  <p>ATENCIÓN: LUIS REYNA, ANEXO 444555 CEL: 999025103 / #581560</p>
+                  <p>ATENCIÓN: GIOVANA DIAZ, ANEXO 444576 CEL: 999856114 / RPM #541064</p>
+                  <p>ATENCIÓN: JORGE OLCESE, ANEXO 444669 CEL: 998676746 / RPM #544971</p>
+                  <p>ATENCIÓN: CRISTHIAN CARDENAS, CEL: 968229327 / RPM #968229327</p>
+                  <p>HORARIO DE ATENCIÓN: L -V: 7 AM - 2:30 PM / SAB: 7 - 10:30 AM</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+      font-size: 12px;
+    }
+
+    img {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      color: #06C;
+      font-size: 12px;
+    }
+
+    td {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+      font-size: 12px;
+      background-color: #FFF
+    }
+
+    p {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</div>
+</div>

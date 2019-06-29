@@ -1,0 +1,1057 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <form method="#" action="#">
+            <div class="card-header card-header-text" data-background-color="blue">
+              <h4 class="card-title">OC/OS</h4>
+            </div>
+            <div class="card-content">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Comprador
+                      <span class="star"></span>
+                    </label>
+                    <input name="comprador" [(ngModel)]="item.comprador" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">RUC Comprador
+                      <span class="star"></span>
+                    </label>
+                    <input name="ruccomprador" [(ngModel)]="item.ruccomprador" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="proveedor" [(ngModel)]="item.proveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Orden de {{item.tipo}}
+                      <span class="star"></span>
+                    </label>
+                    <input name="nroordencompra" [(ngModel)]="item.nroordencompra" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">RUC Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="rucproveedor" [(ngModel)]="item.rucproveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Código Proveedor
+                      <span class="star"></span>
+                    </label>
+                    <input name="codigoproveedor" [(ngModel)]="item.codigoproveedor" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Fecha de Emisión
+                      <span class="star"></span>
+                    </label>
+                    <input name="fecharegistro" [(ngModel)]="item.fecharegistro" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Versión OC
+                      <span class="star"></span>
+                    </label>
+                    <input name="version" [(ngModel)]="item.version" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+
+                  <div class="form-group label-floating">
+                    <label class="control-label">Estado Web</label>
+                    <input name="estadoweb" [(ngModel)]="item.estadoweb" required type="text" class="form-control" [disabled]="toggleButton">
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Atencion a
+                      <span class="star"></span>
+                    </label>
+                    <textarea name="atenciona" [(ngModel)]="item.atenciona" required type="text" class="form-control" rows="3" [disabled]="toggleButton"> </textarea>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Contactar con
+                      <span class="star"></span>
+                    </label>
+                    <textarea name="contactarcon" [(ngModel)]="item.contactarcon" required type="text" class="form-control" rows="3" [disabled]="toggleButton"> </textarea>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Creado por 
+                      <span class="star"></span>
+                    </label>
+                    <textarea name="preparadapor" [(ngModel)]="item.preparadapor" required type="text" class="form-control" rows="3" [disabled]="toggleButton"> </textarea>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Facturar a
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.facturara" name="facturara" class="form-control" rows="4" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Recepción de Factura
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.enviarfacturaa" name="enviarfacturaa" class="form-control" rows="4" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Grupo de Compra
+                      <span class="star"></span>
+                    </label>
+                    <textarea [(ngModel)]="item.grupocompra" name="grupocompra" class="form-control" rows="4" [disabled]="toggleButton"></textarea>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Condiciones</h4>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Moneda<span class="star"></span></label>
+                            <input name="moneda" [(ngModel)]="item.moneda" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Forma de Pago<span class="star"></span></label>
+                            <input name="formapago" [(ngModel)]="item.formapago" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Fecha de Inicio de Contrato<span class="star"></span></label>
+                            <input name="fechainiciocontrato" [(ngModel)]="item.fechainiciocontrato" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Fecha Fin de Contrato<span class="star"></span></label>
+                            <input name="fechafincontrato" [(ngModel)]="item.fechafincontrato" required type="text" class="form-control" [disabled]="toggleButton">
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                    <!-- end content-->
+                  </div>
+                  <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Detalle de Items</h4>
+
+                      <div class="material-datatables table-responsive" style="display:block">
+                        <table id="dtArticulos" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+
+                          <thead>
+                            <tr>
+                              <th>Posición</th>
+
+                              <th>Nombre Producto</th>
+                              <th class="disabled-sorting">Cantidad</th>
+                              <th class="disabled-sorting">Unidad</th>
+                              <th class="disabled-sorting">Precio Unitario</th>
+                              <th class="disabled-sorting">Precio Total</th>
+                              <th class="disabled-sorting">Fecha de Entrega</th>
+                            </tr>
+                          </thead>
+
+
+                        </table>
+                      </div>
+                      <!-- end content-->
+                    </div>
+                  </div>
+                  <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+              </div>
+
+
+
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="row">&nbsp;</div>
+                  <div class="row">&nbsp;</div>
+                  <div class="row">&nbsp;</div>
+                  <div class="row">&nbsp;</div>
+                  <div class="row">&nbsp;</div>
+                  <div class="row">
+
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Aprobado por<span class="star"></span></label>
+                        <textarea [(ngModel)]="item.autorizadopor" name="autorizadopor" class="form-control" rows="6" [disabled]="toggleButton"></textarea>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+                <div class="col-sm-4">
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Subtotal({{item.moneda}})<span class="star"></span></label>
+                        <input [(ngModel)]="item.subtotal" name="subtotal" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Descuentos(0.0000%)<span class="star"></span></label>
+                        <input [(ngModel)]="item.descuentos" name="descuentos" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Valor Venta({{item.moneda}})<span class="star"></span></label>
+                        <input [(ngModel)]="item.valorventa" name="valorventa" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Otros Costos({{item.moneda}})<span class="star"></span></label>
+                        <input [(ngModel)]="item.otroscostos" name="otroscostos" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Impuestos(18.0000%)<span class="star"></span></label>
+                        <input [(ngModel)]="item.impuestos" name="impuestos" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group label-floating">
+                        <label class="control-label">Valor Total({{item.moneda}})<span class="star"></span></label>
+                        <input [(ngModel)]="item.valortotal" name="valortotal" class="form-control" [disabled]="toggleButton">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+
+
+            <div class="card-footer">
+              <!--<button type="button" class="btn btn-fill btn-default pull-right" (click)="grabar($event)" [disabled]="toggleButton">Grabar</button>
+              <button (click)="toggleButton=false" class="btn btn-fill btn-default pull-right" *ngIf="id>0">Habilitar Edición</button>-->
+              <a routerLink="/egp-ordencompra/proveedor/buscar" class="btn btn-fill btn-default pull-right">Salir</a>
+              <button class="btn btn-fill btn-default pull-right" (click)="print($event)">Imprimir</button>
+              <button (click)="RechazarOC($event)" class="btn btn-fill btn-default pull-right">Rechazar</button>
+              <button (click)="AprobarOC($event)" class="btn btn-fill btn-default pull-right">Aprobar</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display:none">
+  <!---->
+  <div id="print-section-servicio">
+    <table width="100%" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+      <tbody>
+        <tr>
+          <td align="center">
+
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="449" bgcolor="#fff" style="border-left:1px solid #999;padding:1px; border-right:0; border-top:1px solid #999"
+                    align="left" valign="middle">
+                    <img src="../../../../assets/img/faces/centenario.png" width="358" height="141" style="padding:0; margin:0; border:0">
+                  </td>
+                  <td width="448" align="left" valign="middle" bgcolor="#fff" style="border-left:1px solid #999;padding:5px; border-right:1px solid #999; border-top:1px solid #999">
+                    <table width="100%" cellpadding="10" cellspacing="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td align="left" width="25%"><strong>Ruc:</strong><br>
+                            <strong>Teléfono:</strong><br>
+                            <strong>Dirección:</strong></td>
+                          <td align="left">PE20600323793<br> 01-45325698
+                            <br> Av. Victor Andrés Belaunde 147 . Vía Principal 102 . Edificio: Real Cuatro - Piso: 1, SAN
+                            ISIDRO - LIMA .</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="449" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999" align="left"
+                    valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td style="padding:5px;"><strong>Proveedor:</strong><br> EMPRESA EDITORA EL COMERCIO SA</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td width="50%" height="30" style="border-right:1px solid #999; padding:5px"><strong>RUC Proveedor:</strong><br> PE20143229816
+                          </td>
+                          <td width="50%" height="30" align="left" valign="middle" style="padding:5px"><strong>Código Proveedor:</strong><strong></strong>
+                            <br> 110823232
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td width="448" align="left" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td style="padding:5px"><strong>Orden de Servicio:</strong><br> 4531046368
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td width="50%" height="30" style="border-right:1px solid #999; padding:5px"><strong>Fecha de emision:</strong>
+                            <br> 05-jul-2017
+                          </td>
+                          <td width="25%" height="30" align="left" valign="middle" style="border-right:1px solid #999; padding:5px"><strong>Versión OC:</strong><br>1
+                          </td>
+                          <td width="25%" height="30" align="left" valign="middle" style="padding:5px"><strong>Estado Web:</strong><strong></strong> Aceptada </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Atención a:</strong><br> Sr. ANTONIO TAFUR<br> 3116500
+                    <br> pcolina@comercio.com.pe
+                  </td>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p><strong>Contactar con:</strong><br> JEANETTE ELSA COLLANTES SANTOS<br> 01-4583654
+                      <br> compras1@centenario.com.pe
+                    </p>
+                    <p>&nbsp;</p>
+                    <p><strong>Creadao por:</strong><br> Sr. Gonzalo Moscol </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999; padding:5px"><strong>Facturar a:</strong><br> Centenario Corporativo S.A.C.<br> 20600323793
+                    <br> Av. Victor Andrés Belaunde 147 . Vía<br> Principal 102 . Edificio: Real Cuatro - Piso: 1, SAN ISIDRO
+                    - LIMA </td>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                    <p><strong>Recepción de Factura:</strong><br> Lunes, Miércoles y jueves de 9 am. a 1 pm.<br> Av.Victor Andrés
+                      Belaunde 147.Edif. Real<br> 4,Sótano 1 - San Isidro<br> 01-5236589
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999; padding:5px"><strong>Condiciones:</strong><br>
+                    <strong>Moneda:</strong> PEN<br>
+                    <strong>Forma de Pago:</strong> Dentro de 60 Días<br>
+                    <strong>Fecha de inicio de contrato:</strong> 05-07-2017<br>
+                    <strong>Fecha fin de contrato:</strong> 15-07-2017</td>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                    <p><strong>Grupo de Compra:</strong><br> F00 -IC<br> Administración
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px"><strong>CONDICIONES GENERALES</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:0">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #999">
+              <tbody>
+                <tr>
+                  <td width="7%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Post</strong></td>
+                  <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px"><strong>Descripción del Productos</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Cant</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Unid</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Precio<br>Unitario</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Total</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Fecha<br>Entrega</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #999">
+              <tbody>
+                <tr>
+                  <td width="7%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px">10</td>
+                  <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999;  border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p>SRV SUSCRIPCION DIARIOS<br> SRV SUSCRIPCION DIARIOS
+                    </p>
+                  </td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">&nbsp;</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">&nbsp;</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">&nbsp;</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">330.5100</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="7%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px">10.10</td>
+                  <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999;  border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p>SRV SUSCRIPCION DIARIOS<br>
+                      <strong>Centro:</strong> 6835 - Av. Argentina 3093 CALLAO<br>
+                      <strong>Solicitud de pedido:</strong> 0010534244</p>
+                  </td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">1.0000</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">SRV</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">330.5100</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">330.5100</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">20-07-2017</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p><strong>Aprobado por:</strong><br> Aprobado Nivel 1: GMENDEZG (Permitir agregar más de uno)</p>
+                    <p>&nbsp;</p>
+                    <p>[FIRMA DE CADA APROBADOR]</p>
+                  </td>
+                  <td width="50%" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td width="50%" align="left" valign="middle">
+                            <p><strong>SUB TOTAL (USD)</strong><br>
+                              <strong>DESCUENTO (0.0000%)</strong><br>
+                              <strong>VALOR DE VENTA (USD)</strong><br>
+                              <strong>OTROS COSTOS (USD)</strong><br>
+                              <strong>IMPUESTOS (18.0000%)</strong><br>
+                              <strong>VALOR TOTAL (USD)</strong></p>
+                          </td>
+                          <td align="left" valign="middle">
+                            <p>330.5100<br> 0.0000
+                              <br> 330.5100
+                              <br> 0.0000
+                              <br> 59.4918
+                              <br> 390.0018
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                    <strong>CONDICIONES GENERALES DE LA ORDEN DE COMPRA</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" align="left" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; border-bottom:1px solid #999; padding:5px; margin-bottom:20px">
+                    <p><strong>1 DEFINICIONES</strong><br> COMPRADOR: Centenario Retail S.A.C. , cuyos datos figuran en la cabecera
+                      de la Orden de Compra.<br> PROVEEDOR: Empresa que, según sea el caso, suministra los bienes o realiza
+                      los servicios o trabajos objetos de la Orden<br> de Compra.<br> ORDEN DE COMPRA: Documento elaborado
+                      por el COMPRADOR (en adelante O/C) en el que se incluye todos los<br> términos, condiciones, especificaciones
+                      técnicas, planos, etc. que es aplicable a los suministros o servicios solicitados por<br> el COMPRADOR
+                      y que constituye el único, total y exclusivo acuerdo entre las partes (COMPRADOR - PROVEEDOR). Esta<br>                      orden sustituye a todos los demás documentos cursados entre las partes y está expresamente condicionada
+                      a la<br> aceptación por parte del PROVEEDOR de todas sus condiciones. Salvo exista un contrato.<br>                      COMPROBANTE DE PAGO: Documento autorizado por la SUNAT para deducir costo o gasto.<br>
+                      <br>
+                      <strong>2 ACUSE DE RECIBO</strong><br> En el plazo máximo de tres (03) días calendarios contados desde
+                      la fecha de entrega de la O/C al PROVEEDOR, éste<br> deberá acusar el recibo de la misma, devolviendo
+                      una copia al COMPRADOR, en señal de su completa conformidad con<br> los términos de la O/C. Si el acuse
+                      de recibo lleva consigo alguna modificación o reserva a las condiciones generales o<br> particulares
+                      de la O/C, aquellas serán consideradas nulas si no han sido previamente aceptadas, en forma explícita
+                      y por<br> escrito, por el COMPRADOR.<br>
+                      <br>
+                      <strong>3 PRECIOS Y PAGO</strong><br> Los precios especificados en la O/C, son fijos y no revisables.
+                      El pago será efectuado de acuerdo a lo establecido en la<br> O/C. Sin embargo, el pago será retenido
+                      o deducido parcialmente si el PROVEEDOR no está cumpliendo con las<br> condiciones aplicables a la
+                      O/C.
+                      <br>
+                      <br>
+                      <strong>4 ENTREGA DE BIENES</strong><br> 4.1 Todas las entregas se realizarán con el embalaje suficiente,
+                      en el lugar indicado en la O/C y en los plazos concertados.<br> En caso de retrasos, el COMPRADOR se
+                      reserva el derecho a rechazar la entrega.<br> 4.2 El COMPRADOR recibirá todos los bienes con carácter
+                      provisional. La aceptación o no de los mismos se efectuará una<br> vez pasados los controles de cantidad
+                      y calidad.<br> 4.3 Los bienes se entregarán agrupados por número de O/C, indicando referencia y descripción
+                      clara del ítem. No se<br> mezclaran en un mismo bulto, bienes de distintas O/C.<br> 4.4 Todos los bienes
+                      vendrán acompañadas de sus respectivas Guías de Remisión, en original (Destinatario) y copia<br> (SUNAT).
+                      <br> 4.5 Las Guías de Remisión indicarán el número de bultos, describirán los bienes con la misma denominación
+                      de la O/C y<br> con las cantidades, referencias de ítem o plano. Cada Guía de Remisión corresponderá
+                      a una sola O/C cuyo número estará<br> convenientemente indicado.<br>
+                      <br>
+                      <strong>5 CONDICIONES DE PAGO DE LOS COMPROBANTES DE    PAGO</strong><br> 5.1 El plazo para el pago
+                      correrá a partir de la fecha de recepción de la misma por el COMPRADOR.<br> 5.2 Los vencimientos serán
+                      los que figuren en las condiciones de pago indicadas en la O/C.<br> 5.3 Para el recojo de cheques el
+                      PROVEEDOR debe presentar copia de DNI y el cargo del Comprobante de Pago.<br>
+                      <strong><br>6. SEGURIDAD Y SALUD EN EL TRABAJO</strong><br> 6.1 El PROVEEDOR declara conocer y se compromete
+                      a cumplir el contenido de los siguientes documentos:<br> . Manual de Políticas: Estándares de trabajo
+                      de Contratistas<br> . Las disposiciones legales en materia de seguridad y salud en el trabajo de acuerdo
+                      a la Ley 29783.<br> . Mantener asegurados a sus trabajadores, dependientes y/o al personal de terceros
+                      que utilice para el desarrollo de<br> sus actividades.<br> . Las disposiciones legales en materia ambiental
+                      que regulan las actividades empresariales y de construcción.<br> 6.2 El PROVEEDOR acredita contar con
+                      su propio Reglamento de Seguridad y Salud en el Trabajo, el cual se encuentra<br> conforme a los lineamientos
+                      de Seguridad y Salud en el Trabajo del COMPRADOR.<br> En caso de que exista discrepancia entre las
+                      normativas de Seguridad del PROVEEDOR y del COMPRADOR,<br> prevalecerán las aplicadas por este último.<br>
+                      <br>
+                      <strong>7. SEGUROS</strong><br> 7.1. El PROVEEDOR deberá contratar para todos sus trabajadores, un
+                      Seguro de Vida, conforme a lo establecido en el<br> Decreto Legislativo Nº 688 o la norma que la sustituya,
+                      El PROVEEDOR deberá contratar el Seguro Obligatorio de<br> Accidentes de Tránsito (SOAT) para uso propio
+                      para los vehículos de su propiedad, alquilados arrendados y/o de terceros,<br> que sean utilizados
+                      durante las operaciones objeto del presente Subcontrato.<br> 7.2. El PROVEEDOR, deberá contratar un
+                      Seguro Complementario de Trabajo de Riesgo, en los términos y condiciones<br> establecidos en la Ley
+                      26790, normas complementarias y conexas, cuya cobertura deberá incluir la prevención de riesgos<br>                      de salud, así como la prevención de invalidez y sepelio por causa del desarrollo de trabajo de riesgo,
+                      el cual deberá estar<br> vigente durante todo el tiempo que dure la ejecución de los servicios.<br>
+                      <br>
+                      <strong>8. RESPONSABILIDADES DEL PROVEEDOR</strong><br> El PROVEEDOR asume cualquier responsabilidad
+                      por accidentes de trabajo, inclusive en los montos no cubiertos por los<br> seguros contratados descritos
+                      en el numeral precedente, que le resulten imputables o a su personal, quedando EL<br> COMPRADOR eximido
+                      de dicha responsabilidad.<br> EL PROVEEDOR asume íntegramente la responsabilidad en caso que se causaren
+                      daños y perjuicios por la inejecución,<br> total o parcial, de las obligaciones a su cargo de acuerdo
+                      al servicios descritos en el presente documento.<br>
+                      <br>
+                      <strong>9. PENALIDADES</strong><br> En caso de retrasos, el COMPRADOR se reserva el derecho de aplicar
+                      una penalidad del 2% por semana de retraso o<br> fracción, hasta un tope del 10% como máximo, penalidad
+                      que será aplicable sobre el valor total de la O/C incluido el I.G.V.<br>
+                      <br>
+                      <strong>10. PRELACIÓN DE DOCUMENTOS</strong> <br> En caso de que exista un contrato que respalde la
+                      presente O/C prevalecerán las<br> estipulaciones previstas en dicho documento.<br> Fecha: 06.04.2017
+                      <br>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; border-bottom:1px solid #999; padding:5px; margin-bottom:20px">
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>---------------------------------------------<br> PROVEEDOR
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <style type="text/css">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        font-size: 12px;
+      }
+
+      img {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+      a {
+        color: #06C;
+        font-size: 12px;
+      }
+
+      td {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        font-size: 12px;
+        background-color: #FFF
+      }
+
+      p {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+    </style>
+  </div>
+
+  <div id="print-section-material">
+    <table width="100%" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+      <tbody>
+        <tr>
+          <td align="center">
+
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="449" bgcolor="#fff" style="border-left:1px solid #999;padding:1px; border-right:0; border-top:1px solid #999"
+                    align="left" valign="middle">
+                    <img src="../../../../assets/img/faces/centenario.png" width="358" height="141" style="padding:0; margin:0; border:0">
+                  </td>
+                  <td width="448" align="left" valign="middle" bgcolor="#fff" style="border-left:1px solid #999;padding:5px; border-right:1px solid #999; border-top:1px solid #999">
+                    <table width="100%" cellpadding="10" cellspacing="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td align="left" width="25%"><strong>Ruc:</strong><br>
+                            <strong>Teléfono:</strong><br>
+                            <strong>Dirección:</strong></td>
+                          <td align="left">PE20600323980<br> 01-45325698
+                            <br> Av. Victor Andrés Belaunde 147 . Vía Principal 102 . Edificio: Real Cuatro - Piso: 1, SAN
+                            ISIDRO - LIMA .</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="449" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999" align="left"
+                    valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td style="padding:5px;"><strong>Proveedor:</strong><br> SODIMAC PERU S.A.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td width="50%" height="30" style="border-right:1px solid #999; padding:5px"><strong>RUC Proveedor:</strong><br> PE20100016681
+                          </td>
+                          <td width="50%" height="30" align="left" valign="middle" style="padding:5px"><strong>Código Proveedor:</strong><strong></strong>
+                            <br> 110857210
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td width="448" align="left" valign="top" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td style="padding:5px"><strong>OC/OS:</strong><br> 4590015491
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #999">
+                      <tbody>
+                        <tr>
+                          <td width="50%" height="30" style="border-right:1px solid #999; padding:5px"><strong>Fecha de emision:</strong>
+                            <br>05-jul-2017</td>
+                          <td width="25%" height="30" align="left" valign="middle" style="border-right:1px solid #999; padding:5px"><strong>Versión OC:</strong><br>1
+                          </td>
+                          <td width="25%" height="30" align="left" valign="middle" style="padding:5px"><strong>Estado Web:</strong><strong></strong> Aceptada </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Atención a:</strong><br> Sr. ANTONIO TAFUR<br> 01-257364 / 94583901<br> atafur@prueba.com
+                  </td>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p><strong>Contactar con:</strong><br> JEANETTE ELSA COLLANTES SANTOS<br> 01-4583654
+                      <br> compras1@centenario.com.pe
+                    </p>
+                    <p>&nbsp;</p>
+                    <p><strong>Creadao por:</strong><br> Sr. Gonzalo Moscol </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999; padding:5px"><strong>Facturar a:</strong><br> Centenario Retail S.A.C.<br> 20600323980
+                    <br> Av. Victor Andrés Belaunde 147 . Vía<br> Principal 102 . Edificio: Real Cuatro - Piso: 1, SAN ISIDRO
+                    - LIMA </td>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                    <p><strong>Recepción de Factura:</strong><br> Lunes, Miércoles y jueves de 9 am. a 1 pm.<br> Av.Victor Andrés
+                      Belaunde 147.Edif. Real<br> 4,Sótano 1 - San Isidro<br> 01-5236589
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:1px solid #999; padding:5px"><strong>Condiciones:</strong><br>
+                    <strong>Moneda:</strong> USD<br>
+                    <strong>Forma de Pago:</strong> Dentro de 45 días<br>
+                    <strong>Fecha de inicio de contrato:</strong> 05-07-2017<br>
+                    <strong>Fecha fin de contrato:</strong> 15-07-2017</td>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                    <p><strong>Grupo de Compra:</strong><br> F56 - IC<br> Mkt. C.C. Minka</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px"><strong>CONDICIONES GENERALES</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:0">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #999">
+              <tbody>
+                <tr>
+                  <td width="7%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:0; border-top:0; padding:5px"><strong>Post</strong></td>
+                  <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px"><strong>Descripción del Productos</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Cant</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Unid</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Precio<br>Unitario</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Total</strong></td>
+                  <td width="10%" height="20" align="center" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px"><strong>Fecha<br>Entrega</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #999">
+              <tbody>
+                <tr>
+                  <td width="7%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:1px solid #999; border-bottom:1px solid #999; border-right:0; border-top:0; padding:5px">00010</td>
+                  <td width="43%" height="20" bgcolor="#fff" style="border-left:1px solid #999;  border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p>EQUIPO DE SONIDO (RADIO GRABADOR)</p>
+                    <p>&nbsp;</p>
+                    <p><strong>Centro: </strong>6835 - Av. Argentina 3093 CALLAO<br>
+                      <strong>Solicitud de pedido:</strong> 0010534244 <br>
+                      <br>
+                    </p>
+                  </td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">1.0000</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">UNI</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">285.0000</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">285.0000</td>
+                  <td width="10%" height="20" align="center" valign="middle" bgcolor="#fff" style="border-left:0; border-bottom:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">20-07-2017</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="50%" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; padding:5px">
+                    <p><strong>Aprobado por:</strong><br> Aprobado Nivel 1: GMENDEZG (Permitir agregar más de uno)</p>
+                    <p>&nbsp;</p>
+                    <p>[FIRMA DE CADA APROBADOR]</p>
+                  </td>
+                  <td width="50%" bgcolor="#fff" style="border-left:0; border-right:1px solid #999; border-top:0; padding:5px">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td width="50%" align="left" valign="middle">
+                            <p><strong>SUB TOTAL (USD)</strong><br>
+                              <strong>DESCUENTO (0.0000%)</strong><br>
+                              <strong>VALOR DE VENTA (USD)</strong><br>
+                              <strong>OTROS COSTOS (USD)</strong><br>
+                              <strong>IMPUESTOS (18.0000%)</strong><br>
+                              <strong>VALOR TOTAL (USD)</strong></p>
+                          </td>
+                          <td align="left" valign="middle">
+                            <p>285.0000<br> 0.0000
+                              <br> 285.0000
+                              <br> 0.0000
+                              <br> 51.3000
+                              <br> 336.3000
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" height="20" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; padding:5px">
+                    <strong>CONDICIONES GENERALES DE LA ORDEN DE COMPRA</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" align="left" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:1px solid #999; border-bottom:1px solid #999; padding:5px; margin-bottom:20px">
+                    <p><strong>1 DEFINICIONES</strong><br /> COMPRADOR: Centenario Retail S.A.C. , cuyos datos figuran en la
+                      cabecera de la Orden de Compra.<br /> PROVEEDOR: Empresa que, según sea el caso, suministra los bienes
+                      o realiza los servicios o trabajos objetos de la Orden<br /> de Compra.<br /> ORDEN DE COMPRA: Documento
+                      elaborado por el COMPRADOR (en adelante O/C) en el que se incluye todos los<br /> términos, condiciones,
+                      especificaciones técnicas, planos, etc. que es aplicable a los suministros o servicios solicitados
+                      por
+                      <br /> el COMPRADOR y que constituye el único, total y exclusivo acuerdo entre las partes (COMPRADOR
+                      - PROVEEDOR). Esta<br /> orden sustituye a todos los demás documentos cursados entre las partes y está
+                      expresamente condicionada a la<br /> aceptación por parte del PROVEEDOR de todas sus condiciones. Salvo
+                      exista un contrato.<br /> COMPROBANTE DE PAGO: Documento autorizado por la SUNAT para deducir costo
+                      o gasto.<br />
+                      <br />
+                      <strong>2 ACUSE DE RECIBO</strong><br /> En el plazo máximo de tres (03) días calendarios contados
+                      desde la fecha de entrega de la O/C al PROVEEDOR, éste<br /> deberá acusar el recibo de la misma, devolviendo
+                      una copia al COMPRADOR, en señal de su completa conformidad con<br /> los términos de la O/C. Si el
+                      acuse de recibo lleva consigo alguna modificación o reserva a las condiciones generales o<br /> particulares
+                      de la O/C, aquellas serán consideradas nulas si no han sido previamente aceptadas, en forma explícita
+                      y por<br /> escrito, por el COMPRADOR.<br />
+                      <br />
+                      <strong>3 PRECIOS Y PAGO</strong><br /> Los precios especificados en la O/C, son fijos y no revisables.
+                      El pago será efectuado de acuerdo a lo establecido en la<br /> O/C. Sin embargo, el pago será retenido
+                      o deducido parcialmente si el PROVEEDOR no está cumpliendo con las<br /> condiciones aplicables a la
+                      O/C.
+                      <br />
+                      <br />
+                      <strong>4 ENTREGA DE BIENES</strong><br /> 4.1 Todas las entregas se realizarán con el embalaje suficiente,
+                      en el lugar indicado en la O/C y en los plazos concertados.<br /> En caso de retrasos, el COMPRADOR
+                      se reserva el derecho a rechazar la entrega.<br /> 4.2 El COMPRADOR recibirá todos los bienes con carácter
+                      provisional. La aceptación o no de los mismos se efectuará una<br /> vez pasados los controles de cantidad
+                      y calidad.<br /> 4.3 Los bienes se entregarán agrupados por número de O/C, indicando referencia y descripción
+                      clara del ítem. No se<br /> mezclaran en un mismo bulto, bienes de distintas O/C.<br /> 4.4 Todos los
+                      bienes vendrán acompañadas de sus respectivas Guías de Remisión, en original (Destinatario) y copia<br
+                      /> (SUNAT).
+                      <br /> 4.5 Las Guías de Remisión indicarán el número de bultos, describirán los bienes con la misma
+                      denominación de la O/C y<br /> con las cantidades, referencias de ítem o plano. Cada Guía de Remisión
+                      corresponderá a una sola O/C cuyo número estará<br /> convenientemente indicado.<br />
+                      <br />
+                      <strong>5 CONDICIONES DE PAGO DE LOS COMPROBANTES DE    PAGO</strong><br /> 5.1 El plazo para el pago
+                      correrá a partir de la fecha de recepción de la misma por el COMPRADOR.<br /> 5.2 Los vencimientos
+                      serán los que figuren en las condiciones de pago indicadas en la O/C.<br /> 5.3 Para el recojo de cheques
+                      el PROVEEDOR debe presentar copia de DNI y el cargo del Comprobante de Pago.<br />
+                      <br />
+                      <strong>6. SEGURIDAD Y SALUD EN EL TRABAJO</strong><br /> 6.1 El PROVEEDOR declara conocer y se compromete
+                      a cumplir el contenido de los siguientes documentos:<br /> . Manual de Políticas: Estándares de trabajo
+                      de Contratistas<br /> . Las disposiciones legales en materia de seguridad y salud en el trabajo de
+                      acuerdo a la Ley 29783.<br /> . Mantener asegurados a sus trabajadores, dependientes y/o al personal
+                      de terceros que utilice para el desarrollo de<br /> sus actividades.<br /> . Las disposiciones legales
+                      en materia ambiental que regulan las actividades empresariales y de construcción.<br /> 6.2 El PROVEEDOR
+                      acredita contar con su propio Reglamento de Seguridad y Salud en el Trabajo, el cual se encuentra<br
+                      /> conforme a los lineamientos de Seguridad y Salud en el Trabajo del COMPRADOR.<br /> En caso de que
+                      exista discrepancia entre las normativas de Seguridad del PROVEEDOR y del COMPRADOR,<br /> prevalecerán
+                      las aplicadas por este último.<br />
+                      <br />
+                      <strong>7. SEGUROS</strong><br /> 7.1. El PROVEEDOR deberá contratar para todos sus trabajadores, un
+                      Seguro de Vida, conforme a lo establecido en el<br /> Decreto Legislativo Nº 688 o la norma que la
+                      sustituya, El PROVEEDOR deberá contratar el Seguro Obligatorio de<br /> Accidentes de Tránsito (SOAT)
+                      para uso propio para los vehículos de su propiedad, alquilados arrendados y/o de terceros,<br /> que
+                      sean utilizados durante las operaciones objeto del presente Subcontrato.<br /> 7.2. El PROVEEDOR, deberá
+                      contratar un Seguro Complementario de Trabajo de Riesgo, en los términos y condiciones<br /> establecidos
+                      en la Ley 26790, normas complementarias y conexas, cuya cobertura deberá incluir la prevención de riesgos<br
+                      /> de salud, así como la prevención de invalidez y sepelio por causa del desarrollo de trabajo de riesgo,
+                      el cual deberá estar<br /> vigente durante todo el tiempo que dure la ejecución de los servicios.<br
+                      />
+                      <br />
+                      <strong>8. RESPONSABILIDADES DEL PROVEEDOR</strong><br /> El PROVEEDOR asume cualquier responsabilidad
+                      por accidentes de trabajo, inclusive en los montos no cubiertos por los<br /> seguros contratados descritos
+                      en el numeral precedente, que le resulten imputables o a su personal, quedando EL<br /> COMPRADOR eximido
+                      de dicha responsabilidad.<br /> EL PROVEEDOR asume íntegramente la responsabilidad en caso que se causaren
+                      daños y perjuicios por la inejecución,<br /> total o parcial, de las obligaciones a su cargo de acuerdo
+                      al servicios descritos en el presente documento.<br />
+                      <br />
+                      <strong>9. PENALIDADES</strong><br /> En caso de retrasos, el COMPRADOR se reserva el derecho de aplicar
+                      una penalidad del 2% por semana de retraso o<br /> fracción, hasta un tope del 10% como máximo, penalidad
+                      que será aplicable sobre el valor total de la O/C incluido el I.G.V.<br />
+                      <br />
+                      <strong>10. PRELACIÓN DE DOCUMENTOS </strong><br> En caso de que exista un contrato que respalde la
+                      presente O/C prevalecerán las<br /> estipulaciones previstas en dicho documento.<br /> Fecha: 06.04.2017</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table width="900" cellpadding="0" cellspacing="0" border="0" bgcolor="#fff">
+              <tbody>
+                <tr>
+                  <td width="100%" align="center" bgcolor="#fff" style="border-left:1px solid #999; border-right:1px solid #999; border-top:0; border-bottom:1px solid #999; padding:5px; margin-bottom:20px">
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>---------------------------------------------<br> PROVEEDOR
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <style type="text/css">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        font-size: 12px;
+      }
+
+      img {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+      a {
+        color: #06C;
+        font-size: 12px;
+      }
+
+      td {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        font-size: 12px;
+        background-color: #FFF
+      }
+
+      p {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+    </style>
+  </div>
+</div>

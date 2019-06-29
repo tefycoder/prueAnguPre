@@ -1,0 +1,272 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">                    
+                    <div class="card-header card-header-text" data-background-color="blue">
+                        <h4 class="card-title">Buscar Organización</h4>
+                    </div>
+                    <div class="card-content">
+                        <form #o="ngForm" (ngSubmit)="buscarOrganizacion(o)" novalidate autocomplete="off">
+                           
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">RUC
+                                        </label>
+                                        <input name="Ruc" pattern="[0-9]{0,11}" maxlength="11" ngModel #Ruc="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Razón Social
+                                        </label>
+                                        <input name="Nombre" pattern="[A-Za-zñÑáÁéÉíÍóÓúÚ0-9-. ]{0,50}" maxlength="50" ngModel #Nombre="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">Grupo empresarial</label>
+                                        <select class="form-control" data-style="select-with-transition" title="" name="IdGrupo" ngModel #IdGrupo="ngModel">
+                                            <option [ngValue]="">Seleccionar todos</option>
+                                            <option *ngFor="let grupoEmpresarial of gruposEmpresariales" [ngValue]="grupoEmpresarial.IdGrupo">{{grupoEmpresarial.Descripcion | uppercase}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <div class="form-group">
+                                        <button class="btn btn-default">Buscar</button>
+                                        <button type="button" class="btn btn-default" (click)="reset(o)">Limpiar</button>
+                                    </div>
+                                </div> 
+
+                            </div>     
+                        </form>
+                        <nav class="navbar navbar-info" role="navigation">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <span class="navbar-brand">Resultados</span>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2 text-left">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Mostrar</label>
+                                <select class="form-control" data-style="select-with-transition" title="" [(ngModel)]="mostrar" (change)="cambiarResultadosMostrar()">
+                                    <option *ngFor="let mostrarResultado of mostrarResultados" [ngValue]="mostrarResultado">{{mostrarResultado}}</option>
+                                </select>
+                                <span class="material-input"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right hidden-xs">
+                            <button class="btn btn-success btn-sm" (click)="verificarSeleccionCambioEstadoIds('ACTIV')">Activar</button>
+                            <button class="btn btn-danger btn-sm" (click)="verificarSeleccionCambioEstadoIds('INACT')">Desactivar</button>
+                            <a class="btn btn-default btn-sm" [routerLink]="['/organizacion/adminebiz/formulario', 'nuevo']">Crear</a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="table-responsive">							
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="td-actions text-center">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input id="seleccionar-todos" type="checkbox" (click)="seleccionarTodosRegistros($event.toElement.checked)">
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Ruc')">RUC
+                                                <span [ngClass]="{'hidden':ordenar != 'Ruc'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Nombre')">Organizacion
+                                                <span [ngClass]="{'hidden':ordenar != 'Nombre'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('GrupoEmpresarial')">Grupo Empresarial
+                                                <span [ngClass]="{'hidden':ordenar != 'GrupoEmpresarial'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Estado')">Estado 															
+                                                <span [ngClass]="{'hidden':ordenar != 'Estado'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div class="container-loading" [ngClass]="{invisible: loading}">
+                                            <div class="lds-ripple"><div></div><div></div></div>
+                                        </div>
+                                        <tr *ngFor="let organizacion of organizaciones" [ngClass]="{'danger':organizacion.Estado == 'INACT'}">
+                                            <td class="text-center">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" [value]="organizacion.IdOrganizacion">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">{{organizacion.Ruc}}</td>
+                                            <td>{{ organizacion.Nombre }}</td>
+                                            <td>{{ organizacion.GrupoEmpresarial }}</td>
+                                            <td class="text-center">
+                                                <div *ngIf="organizacion.Estado == 'ACTIV'">Activo</div>
+                                                <div *ngIf="organizacion.Estado == 'INACT'">Inactivo</div>
+                                            </td>
+                                            <td class="td-actions text-center">
+                                                <button rel="tooltip" type="button" class="btn btn-default btn-round" [routerLink]="['/organizacion/adminebiz/formulario', organizacion.IdOrganizacion]" title="Ver/Editar">
+                                                    <i class="material-icons">visibility</i>
+                                                    <div class="ripple-container"></div>
+                                                </button>
+												<button rel="tooltip" type="button" class="btn btn-danger btn-round" (click)="confimarInhabilitarOrganizacion(organizacion)" title="Eliminar">
+													<i class="material-icons">clear</i>
+													<div class="ripple-container"></div>
+												</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                            <ul class="pagination">
+                                <li class="paginate_button first" [ngClass]="{invisible: paginaSeleccionada === 0}" (click)="selecionarPagina(0)">
+                                    <a class="page-link">&lt;&lt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="paginate_button previous" [ngClass]="{invisible: paginaSeleccionada === 0}" (click)="selecionarPagina(paginaSeleccionada - 1)">
+                                    <a class="page-link">&lt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <ng-container *ngFor="let pagina of paginas">
+                                    <li class="paginate_button page-item" [ngClass]="{active: paginaSeleccionada === pagina}" (click)="selecionarPagina(pagina)">
+                                        <a class="page-link">{{ pagina + 1 }}</a>
+                                    </li>
+                                </ng-container>
+                                <li class="paginate_button next" [ngClass]="{invisible: paginaSeleccionada === (paginas.length - 1)}" (click)="selecionarPagina(paginaSeleccionada + 1)">
+                                    <a class="page-link">&gt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="paginate_button last" [ngClass]="{invisible: paginaSeleccionada === (paginas.length - 1)}" (click)="selecionarPagina(paginas.length - 1)">
+                                    <a class="page-link">&gt;&gt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmacion - Activar Grupo Empresarial -->
+    
+    <div id="confirmar-activar" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Aviso</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-12">¿Desea activar las organizaciones seleccionadas?</div>
+                </div>            
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-default" (click)="cambiarEstadoSelecionados('ACTIV')">Aceptar</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmacion - Desactivar Grupo Empresarial -->
+    
+    <div id="confirmar-desactivar" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Aviso</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-12">¿Desea desactivar las organizaciones seleccionadas?</div>
+                </div>            
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-default" (click)="cambiarEstadoSelecionados('INACT')">Aceptar</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+<!-- Confirmacion - Inhabilitar Organizacion -->
+
+<div id="confirmar-inhabilitar" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Aviso</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">¿Desea eliminar organización: <b>{{organizacionHabilitado.Nombre}}</b>?</div>
+                </div>            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-default" (click)="inhabilitarOrganizacion()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+
+
+
+
+<div id="container-floating" class="visible-xs-block">                  
+	<div class="fab-ebiz-numner4 fab-ebiz hidden">
+	</div>
+	<div class="fab-ebiz-numner3 fab-ebiz" style="background: #4caf50" (click)="verificarSeleccionCambioEstadoIds('ACTIV')">
+		<p class="fab-ebiz-letter"><i class="material-icons" title="Activar organización">done</i></p>
+	</div>
+	<div class="fab-ebiz-numner2 fab-ebiz" style="background: #f44336" (click)="verificarSeleccionCambioEstadoIds('INACT')">
+		<p class="fab-ebiz-letter"><i class="material-icons" title="Desactivar organización">remove</i></p>
+	</div>
+	<div class="fab-ebiz-numner1 fab-ebiz" style="background: #2399e5">
+		<p class="fab-ebiz-letter"><i class="material-icons" title="Crear organización" [routerLink]="['/organizacion/adminebiz/formulario', 'nuevo']">add</i></p>
+	</div>                  
+	<div id="floating-button">
+		<p class="fab-ebiz-plus"><i class="material-icons">scatter_plot</i></p>
+		<img class="fab-ebiz-edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+	</div>                  
+</div>

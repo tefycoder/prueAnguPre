@@ -1,0 +1,245 @@
+
+table{background-color:#FFFFFF;}
+.fontlink { font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px; color: #333333;}
+#fontlink a:link {color: #006699; text-decoration:none;}
+#fontlink a:hover {color: #006699; text-decoration:underline;}
+#fontlink a:active {color: #006699; text-decoration:none;}
+.noulinered11  {  font-family : verdana; font-size : 11px; color : red; text-decoration : none}
+.nouline9 { font-family : verdana; font-size : 10px; color : red; text-decoration : none}
+.nouline10 { font-family : verdana; font-size : 10px; color : "#CC9900"; text-decoration : none}
+/*Agregado por Nbarreto*/
+.nouline11 { font-family : verdana; font-size : 10px; color : blue; text-decoration : none}
+.nouline12 { font-family : verdana; font-size : 10px; color : green; text-decoration : none}
+/*Fin de agregado por Nbarreto*/
+.fontreg {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px}
+.fontreg10 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+}
+.fontreg11 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px}
+.fontgreenreg { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color : green}
+.fontgreenbold { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color : green; font-weight: bold}
+.fontgreensmall { font-family: Verdana, Arial, Helvetica, sans-serif; color : green; font-size: 10px}
+.fontbrick {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color : #006699
+}
+.fontbrick10 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color : #006699
+}
+.fontorange { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;color : #F4D021 }
+.headertable { background-color: #ebebeb }
+.bodytable {
+	background-color: #C8D7E3
+}
+.bgwhite { background-color: #ffffff }
+.bgbody { background-color: #3C5F84 }
+
+.clsEncabezadoTabla
+{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #FFFFFF;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #98B1C4;
+	TEXT-ALIGN: center
+}
+.clsFilaImpar
+{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #F4F4F4;
+	TEXT-ALIGN: center;
+	solid: #CCCCCC;
+}
+.clsFilaConFondo
+{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #DBDDEA;
+	solid: #CCCCCC;
+}
+.clsFilaPar
+{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #FFF;
+	TEXT-ALIGN: center;
+	solid: #CCCCCC;
+
+}
+a:link {
+	color: #006699;
+	text-decoration:none;
+}
+a:visited {
+	color: #006699;
+	text-decoration:none;
+}
+a:hover {
+	color: #C8D7E3;
+	text-decoration: none;
+}
+a:active {
+	color: #0099CC;
+	text-decoration:none;
+}
+.boton{
+	font-size:10px;
+	TEXT-ALIGN: center;
+	font-family:Verdana,Helvetica;
+	font-weight:bold;
+	color:white;
+	background:#3C5F84;
+	border:0px;
+	height:15px;
+}
+.clsInputTextEditableCentrado {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;	
+	TEXT-ALIGN: center;
+	border: thin inset;
+	color: #000000;
+}
+.clsInputTextNoEditableCentrado {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;	
+	TEXT-ALIGN: center;
+	background-color: #ecebe9;
+	border: thin inset;
+	color: #000000;
+}
+.clsInputTextNoEditableIzquierdo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;		
+	TEXT-ALIGN: left;
+	background-color: #ecebe9;
+	border: thin inset;
+	color: #000000;
+}
+.clsInputTextNoEditableDerecho {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;		
+	TEXT-ALIGN: right;
+	background-color: #ecebe9;
+	border: thin inset;
+	color: #000000;
+}
+.clsInputTextEditableDerecho {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;		
+	TEXT-ALIGN: right;
+	border: thin inset;
+	color: #000000;
+}
+
+A {
+	font-style: normal;
+	text-decoration: underline;
+	color: #006699;
+}
+.clsFondoBoton
+{
+	background-color:#3C5F84;	 
+}
+.bgcabeceraorg
+{ 
+	background-color:#EEC60B; 
+}
+.bglinkcabecera
+{ 
+	background-color:#C7C7C7; 
+}
+
+/*agregado fbascones marzo.2009*/
+.fechaAceptada {
+	color : green;
+}
+/*fin agregado*/
+
+/*agregado por fbascones 2009.05.26*/
+span.home {
+	/*FONT-WEIGHT: bolder;*/
+	FONT-SIZE: 8pt;
+	COLOR: #FFFFFF;
+	FONT-FAMILY: Arial, Helvetica, Geneva;
+	TEXT-DECORATION: none;
+	letter-spacing: 0.2em;
+	align: "right";
+}  
+
+.home A {
+	COLOR: FFFFFF; TEXT-DECORATION: none
+}
+
+.home A:hover {
+	COLOR: FFFFFF; TEXT-DECORATION: none
+}
+.home A:link {
+	COLOR: FFFFFF; TEXT-DECORATION: none
+}
+.home A:visited {
+	TEXT-DECORATION: none
+}
+/*fin agregado*/
+
+/*modificado por fbascones 2009.08.05*/
+.semaforoverde {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	background-color:  #A9F5A9;
+	font-weight: bold;
+}
+.semaforoambar {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	font-weight: bold;
+	background-color: #F2F5A9;
+}
+.semafororojo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	background-color: #F5A9A9;
+	font-weight: bold;
+}
+/*fin agregado*/
+/* agregado ejulca - 17/10/2011 */
+.clsTextoNormal
+{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	solid: #CCCCCC;
+}
+/* fin agregado ejulca - 17/10/2011 */
+
+/*Agregado por Raúl Mariños 28/08/2012*/
+.inhabilitado{
+	background: #d3d3d3;
+}
+
+/* Agregado por SRobles 09/08/2017 */
+.desactivado{
+	background:rgb(153, 153, 153);
+}
+
+img.bordeBotonDesactivado {
+    filter: grayscale(1) brightness(1.7);
+}
+/* Fin Agregado por SRobles 09/08/2017 */

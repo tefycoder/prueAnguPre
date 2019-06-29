@@ -1,0 +1,163 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header card-header-text" data-background-color="blue">
+                        <h4 class="card-title">Buscar Usuario a Brindar Accesos</h4>
+                    </div>
+                    <div class="card-content">
+                        <form #uxo="ngForm" (ngSubmit)="buscarUsuarioXOrganizacion(uxo)" novalidate autocomplete="off">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">
+                                            RUC
+                                        </label>
+                                        <input name="Ruc" maxlength="11" ngModel #Ruc="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">
+                                            Razón social
+                                        </label>
+                                        <input  name="RazonSocial" maxlength="100" ngModel #RazonSocial="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">
+                                            Usuario
+                                        </label>
+                                        <input name="Usuario" maxlength="50" ngModel #Usuario="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">
+                                            Apellido paterno
+                                        </label>
+                                        <input name="NombreCompleto" maxlength="50" ngModel #NombreCompleto="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">
+                                            Correo electrónico
+                                        </label>
+                                        <input name="Email" maxlength="60" ngModel #Email="ngModel" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <div class="form-group">
+                                        <button class="btn btn-default">Buscar</button>
+                                        <button type="button" class="btn btn-default" (click)="reset(uxo)">Limpiar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+        
+                        <nav class="navbar navbar-info" role="navigation">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <span class="navbar-brand">Resultados</span>
+                                </div>
+                            </div>
+                        </nav>                                    
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-left">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Mostrar</label>
+                                <select class="form-control" data-style="select-with-transition" title="" [(ngModel)]="mostrar" (change)="cambiarResultadosMostrar()">
+                                    <option *ngFor="let mostrarResultado of mostrarResultados" [ngValue]="mostrarResultado">{{mostrarResultado}}</option>
+                                </select>
+                                <span class="material-input"></span>
+                            </div>
+                        </div>        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="table-responsive">							
+                                <table class="table" height="100px">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Usuario')">Usuario
+                                                <span [ngClass]="{'hidden':ordenar != 'Usuario'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('NombreCompleto')"> Nombre completo
+                                                <span [ngClass]="{'hidden':ordenar != 'NombreCompleto'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('Ruc')">RUC															
+                                                <span [ngClass]="{'hidden':ordenar != 'Ruc'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center cursor-pointer" (click)="ordenarResultados('RazonSocial')">Razón social 															
+                                                <span [ngClass]="{'hidden':ordenar != 'RazonSocial'}">
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 1}">arrow_drop_down</i>
+                                                    <i class="material-icons" [ngClass]="{'hidden':ordenarCount != 2}">arrow_drop_up</i>
+                                                </span>
+                                            </th>
+                                            <th class="text-center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div class="container-loading" [ngClass]="{invisible: loading}">
+                                            <div class="lds-ripple"><div></div><div></div></div>
+                                        </div>
+                                        <tr *ngFor="let usuarioXOrganizacion of usuariosXOrganizaciones">
+                                            <td class="text-center">{{usuarioXOrganizacion.Usuario}}</td>
+                                            <td>{{ usuarioXOrganizacion.NombreCompleto }}</td>
+                                            <td>{{ usuarioXOrganizacion.Ruc }}</td>
+                                            <td>{{ usuarioXOrganizacion.RazonSocial }}</td>                                            
+                                            <td class="td-actions text-center">
+                                                <button rel="tooltip" type="button" class="btn btn-default btn-round" [routerLink]="['/accesousuario/adminebiz/formulario', usuarioXOrganizacion.IdUsuarioXOrganizacion]" title="Ver/Editar">
+                                                    <i class="material-icons">visibility</i>
+                                                    <div class="ripple-container"></div>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                            <ul class="pagination">
+                                <li class="paginate_button first" [ngClass]="{invisible: paginaSeleccionada === 0}" (click)="selecionarPagina(0)">
+                                    <a class="page-link">&lt;&lt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="paginate_button previous" [ngClass]="{invisible: paginaSeleccionada === 0}" (click)="selecionarPagina(paginaSeleccionada - 1)">
+                                    <a class="page-link">&lt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <ng-container *ngFor="let pagina of paginas">
+                                    <li class="paginate_button page-item" [ngClass]="{active: paginaSeleccionada === pagina}" (click)="selecionarPagina(pagina)">
+                                        <a class="page-link">{{ pagina + 1 }}</a>
+                                    </li>
+                                </ng-container>
+                                <li class="paginate_button next" [ngClass]="{invisible: paginaSeleccionada === (paginas.length - 1)}" (click)="selecionarPagina(paginaSeleccionada + 1)">
+                                    <a class="page-link">&gt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="paginate_button last" [ngClass]="{invisible: paginaSeleccionada === (paginas.length - 1)}" (click)="selecionarPagina(paginas.length - 1)">
+                                    <a class="page-link">&gt;&gt;
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
